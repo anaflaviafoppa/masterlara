@@ -16,6 +16,9 @@ const passportConfigure = require('./passport-configuration.js');
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 
+//RECIPE ROUTE:
+const recipeRoute = require('./routes/recipe');
+
 const app = express();
 
 app.set('views', join(__dirname, 'views'));
@@ -59,6 +62,7 @@ app.use(bindUserToViewLocals);
 
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
+app.use('/recipe',recipeRoute);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
