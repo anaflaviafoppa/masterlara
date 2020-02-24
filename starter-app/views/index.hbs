@@ -1,8 +1,30 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
+
+{{#if user}}
+
 <form action="/recipe/search">
 <label for="item">Search your recipe</label>
 <input type="text" id="item" name="item" placeholder="">
+
+  {{!-- <input id="health1" type="checkbox" name="health" value="alcohol-free">
+  <label for="health1"> Alcohol-free</label><br>
+
+  <input id="health2" type="checkbox" name="health" value="celery-free">
+  <label for="health2"> Celery-free</label><br>
+
+  <input id="health3" type="checkbox" name="health" value="Boat" checked>
+  <label for="health3"> I have a boat</label><br><br>
+  --}}
+
 <button>Search</button>
 </form>
+
+{{else}}
+
+you need to be signed up
+<a href="/authentication/sign-up">Sign Up</a>
+<a href="/authentication/sign-in">Sign In</a>
+
+{{/if}}

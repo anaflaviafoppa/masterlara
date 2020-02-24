@@ -1,0 +1,39 @@
+
+{{#with recipe}}
+<h1>{{label}}</h1>
+<img src="{{image}}" alt="">
+<p>Servings: {{yield}} people</p>
+<p>Calories: {{number calories}}kcal</p>
+
+<h4>Health info</h4>
+<ul>
+{{#each healthLabels}}
+<li>{{this}}</li> 
+{{/each}}
+</ul>
+
+<h4>Ingredients:</h4>
+<ul>
+{{#each ingredientLines}}
+<li>{{this}}</li> 
+{{/each}}
+
+</ul>
+<a href={{url}} target="_blank" >SEE MORE</a>
+
+
+<h4>Comments:</h4>
+
+<form action="/recipe/{{ getID uri }}/comment" method="POST">
+<label for="content">Add comment</label>
+<input type="text" name="content" id="content" placeholder="Insert comment here...">
+<button>Comment</button>
+</form>
+{{/with}}
+
+{{#each comments}}
+<img src="{{userId.picture}} " alt="">
+<p>{{userId.name}}</p>
+<p>{{content}}</p>
+
+{{/each}}

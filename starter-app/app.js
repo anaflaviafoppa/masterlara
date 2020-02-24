@@ -15,6 +15,7 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 const passportConfigure = require('./passport-configuration.js');
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
+const hbs = require('hbs');
 
 //RECIPE ROUTE:
 const recipeRoute = require('./routes/recipe');
@@ -23,14 +24,24 @@ const app = express();
 
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(join(__dirname, '/views/partials'));
+
+// HELPERS
+hbs.registerHelper('getID', uri => {
+  const id = uri.split('recipe_')[1];
+  return `${id}`;
+});
+
+hbs.registerHelper('number', number => {
+  return number.toFixed(2);
+});
 
 app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
 app.use(
   sassMiddleware({
     src: join(__dirname, 'public'),
     dest: join(__dirname, 'public'),
-    outputStyle:
-      process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
+    outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
     force: process.env.NODE_ENV === 'development',
     sourceMap: true
   })
@@ -62,7 +73,7 @@ app.use(bindUserToViewLocals);
 
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
-app.use('/recipe',recipeRoute);
+app.use('/recipe', recipeRoute);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
