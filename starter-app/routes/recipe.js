@@ -26,13 +26,24 @@ router.get('/search', (req, res, next) => {
 
   Recipe.then(output => {
     recipes = output.data.hits;
-
-    let counter = 0;
-    const ingredientsArray = params.q.split(' ');
-    console.log(ingredientsArray);
+    let ingredientsArray = params.q.split(' ');
     for (let recipe of recipes) {
-      console.log(recipe.recipe.ingredientLines);
+      ingredientsArray = params.q.split(' ');
+      let counter = 0;
+      let recipeArray = recipe.recipe.ingredientLines;
+      for (let i = 0; i < recipeArray.length; i++) {
+        for (let j = 0; j < ingredientsArray.length; j++) {
+          var incluido = recipeArray[i].includes(ingredientsArray[j]);
+          if (incluido) {
+            counter++;
+            ingredientsArray.splice(j, 1);
+            console.log(ingredientsArray);
+          }
+        }
+        recipe.percentage = ((counter / recipeArray.length) * 100).toFixed(0).toString() + '%';
+      }
     }
+    console.log(recipes);
 
     res.render('recipe/search', { recipes });
   }).catch(error => {
