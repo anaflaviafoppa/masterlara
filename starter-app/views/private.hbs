@@ -7,6 +7,7 @@
 <a class="btn" href="/">Search for some recipe!</a>
 
 <img src="{{user.picture}}" alt="">
-{{user._id}}
+
+<a class="btn" href="/{{user._id}}/edit-picture">Edit picture</a>
 <a class="btn" href="/{{user._id}}/edit">Edit profile</a>
 <form action="/{{user._id}}/delete" method="POST"><button class="btn delete">Delete your account</button></form>

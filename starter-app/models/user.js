@@ -16,10 +16,16 @@ const schema = new mongoose.Schema({
   passwordHash: {
     type: String
   },
+<<<<<<< HEAD
   recipeSearch:{
     type: [String]
   },
   picture: { type: String }
+=======
+  picture: {
+    type: String
+  }
+>>>>>>> 201140e25fd4c0e845fbf8ce7fd9c402ec95ed14
 });
 
 module.exports = mongoose.model('User', schema);

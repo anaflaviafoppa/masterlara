@@ -24,6 +24,7 @@ router.get('/search', (req, res, next) => {
 
   
 
+<<<<<<< HEAD
   const id = req.user._id;
   //console.log(ingredientsArray);
   
@@ -72,6 +73,44 @@ router.get('/search', (req, res, next) => {
             recipe.percentage = ((counter / recipeArray.length) * 100).toFixed(0);
 
             //console.log(recipes[0].recipe);
+=======
+  Recipe.then(output => {
+    recipes = output.data.hits;
+    //SPLIT BY SPACE:
+    let ingredientsArray = params.q.split(' ');
+
+    const percentageSort = (a, b) => {
+      if (a.percentage > b.percentage) {
+        return 1;
+      }
+
+      if (a.percentage < b.percentage) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    };
+
+    //VERIFICAR a quantidade de ingredientes que temos/ingredientes
+    for (let recipe of recipes) {
+      //otimizar por array a busca:
+      ingredientsArray = params.q.split(' ');
+
+      //quantos ingredientes da receita são iguais ao que possuimos na geladeira:
+      let counter = 0;
+
+      //array de Ingredientes do API:
+      let recipeArray = recipe.recipe.ingredientLines;
+
+      for (let i = 0; i < recipeArray.length; i++) {
+        for (let j = 0; j < ingredientsArray.length; j++) {
+          var incluido = recipeArray[i].toLowerCase().includes(ingredientsArray[j]);
+
+          if (incluido) {
+            counter++;
+            ingredientsArray.splice(j, 1);
+            console.log(ingredientsArray);
+>>>>>>> 201140e25fd4c0e845fbf8ce7fd9c402ec95ed14
           }
         }
 
@@ -133,6 +172,18 @@ router.post('/:id/comment', (req, res, next) => {
   Comment.create(data)
     .then(() => {
       res.redirect(`/recipe/${data.recipe}`);
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+router.post('/:recipeId/comment/:commentId/delete', (req, res, next) => {
+  const { recipeId, commentId } = req.params;
+  console.log(recipeId, commentId);
+  Comment.findByIdAndDelete(commentId)
+    .then(() => {
+      res.redirect(`/recipe/${recipeId}`);
     })
     .catch(error => {
       next(error);
