@@ -58,6 +58,10 @@ button,
   color: inherit;
   background-color: transparent; }
 
+.delete {
+  background-color: darkred;
+  color: white; }
+
 textarea {
   min-height: 8em;
   resize: vertical; }

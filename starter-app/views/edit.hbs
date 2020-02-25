@@ -1,0 +1,10 @@
+<form action="/{{user._id}}/edit" method="POST" enctype="multipart/form-data">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" value="{{user.name}}"/>
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" value="{{user.email}}"/>
+  {{!-- <label for="input-picture">Picture</label>
+  <input type="file" accept="image/*" id="input-picture" name="picture"> --}}
+
+  <button>Save changes</button>
+</form>

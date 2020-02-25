@@ -43,7 +43,7 @@ router.get('/search', (req, res, next) => {
         recipe.percentage = ((counter / recipeArray.length) * 100).toFixed(0).toString() + '%';
       }
     }
-    console.log(recipes);
+    
 
     res.render('recipe/search', { recipes });
   }).catch(error => {
