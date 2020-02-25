@@ -43,19 +43,27 @@ router.get('/search', (req, res, next) => {
 
     //VERIFICAR a quantidade de ingredientes que temos/ingredientes
     for (let recipe of recipes) {
-      ingredientsArray = params.q.split(' ');
-      let counter = 0;
-      let recipeArray = recipe.recipe.ingredientLines;
+      //otimizar por array a busca:
+      ingredientsArray = params.q.split(' '); 
+
+      //quantos ingredientes da receita são iguais ao que possuimos na geladeira:
+      let counter = 0; 
+
+      //array de Ingredientes do API:
+      let recipeArray = recipe.recipe.ingredientLines; 
 
       for (let i = 0; i < recipeArray.length; i++) {
         for (let j = 0; j < ingredientsArray.length; j++) {
-          var incluido = recipeArray[i].includes(ingredientsArray[j]);
+         
+          var incluido = recipeArray[i].toLowerCase().includes(ingredientsArray[j]);
+
           if (incluido) {
             counter++;
             ingredientsArray.splice(j, 1);
             console.log(ingredientsArray);
           }
         }
+        //criar uma KEY com o valor da porcentagem:
         recipe.percentage = ((counter / recipeArray.length) * 100).toFixed(0);
       }
     }
