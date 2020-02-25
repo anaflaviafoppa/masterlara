@@ -6,19 +6,22 @@
 <p>Calories: {{number calories}}kcal</p>
 
 <h4>Health info</h4>
-<ul>
-{{#each healthLabels}}
-<li>{{this}}</li> 
-{{/each}}
-</ul>
+  <ul>
+    {{#each healthLabels}}
+    <li>{{this}}</li> 
+    {{/each}}
+  </ul>
 
 <h4>Ingredients:</h4>
+
 <ul>
 {{#each ingredientLines}}
 <li>{{this}}</li> 
 {{/each}}
-
 </ul>
+
+<h4>INGREDIENTES QUE TENHO:</h4>
+{{ ingredientsStorage}}
 <a href={{url}} target="_blank" >SEE MORE</a>
 
 
@@ -30,6 +33,10 @@
 <button>Comment</button>
 </form>
 {{/with}}
+
+
+
+
 
 {{#each comments}}
 <img src="{{userId.picture}} " alt="">
