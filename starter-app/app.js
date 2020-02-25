@@ -48,7 +48,7 @@ app.use(
 );
 app.use(express.static(join(__dirname, 'public')));
 app.use(logger('dev'));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   expressSession({

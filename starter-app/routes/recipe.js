@@ -29,7 +29,6 @@ router.get('/search', (req, res, next) => {
     //SPLIT BY SPACE:
     let ingredientsArray = params.q.split(' ');
 
-
     const percentageSort = (a, b) => {
       if (a.percentage > b.percentage) {
         return 1;
@@ -40,7 +39,7 @@ router.get('/search', (req, res, next) => {
       }
       // a must be equal to b
       return 0;
-    }
+    };
 
     //VERIFICAR a quantidade de ingredientes que temos/ingredientes
     for (let recipe of recipes) {
@@ -69,8 +68,9 @@ router.get('/search', (req, res, next) => {
       }
     }
 
-    //Organizar por ordem decrescente a lista de receitas:
-    recipes.sort(function (a, b) {
+    console.log('PERCENTAGE ' + typeof recipes[0].percentage);
+
+    recipes.sort(function(a, b) {
       if (parseInt(a.percentage) < parseInt(b.percentage)) {
         return 1;
       }
@@ -79,9 +79,7 @@ router.get('/search', (req, res, next) => {
       }
       // a must be equal to b
       return 0;
-    })
-
-    
+    });
 
     res.render('recipe/search', { recipes });
   }).catch(error => {
