@@ -29,8 +29,14 @@ passport.use(
     },
     (req, email, password, callback) => {
       const name = req.body.name;
-      bcryptjs
-        .hash(password, 10)
+      User.findOne({ email })
+        .then(user => {
+          if (user) {
+            return Promise.reject(new Error('EMAIL_ALREADY_REGISTERED'));
+          } else {
+            return bcryptjs.hash(password, 10);
+          }
+        })
         .then(hash => {
           return User.create({
             name,
@@ -58,7 +64,11 @@ passport.use(
     })
       .then(document => {
         user = document;
-        return bcryptjs.compare(password, user.passwordHash);
+        if (user) {
+          return bcryptjs.compare(password, user.passwordHash);
+        } else {
+          return Promise.reject(new Error('EMAIL_NOT_REGISTERED'));
+        }
       })
       .then(passwordMatchesHash => {
         if (passwordMatchesHash) {

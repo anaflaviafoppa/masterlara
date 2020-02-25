@@ -10,7 +10,7 @@ const RECIPE_API_KEY = process.env.RECIPE_API_KEY;
 
 const axios = require('axios');
 
-router.get('/search', (req, res, next) => {
+router.get('/search', routeGuard, (req, res, next) => {
   //Params to request the API
   const params = {
     q: req.query.item,
@@ -86,17 +86,38 @@ router.get('/search', (req, res, next) => {
   });
 });
 
-router.get('/:id', (req, res, next) => {
+// Router for the SINGLE view. It displays the recipe API info and renders the comments related to that recipe
+router.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
   let recipe;
+  let comments;
   const Recipe = axios.get(
     `https://api.edamam.com/search?r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${id}&app_id=${RECIPE_API_ID}&app_key=${RECIPE_API_KEY}`
   );
   Recipe.then(output => {
     recipe = output.data[0];
+    // finding comments associated to that recipe and extracting the user info to display user name and user picture
     return Comment.find({ recipe: id })
       .populate('userId')
-      .then(comments => {
+      .lean()
+      .then(docs => {
+        comments = docs;
+        const logged = req.user._id;
+        console.log('docs', docs[0].userId._id, logged);
+        // pass to view if the user is the author of the comment, then he will see the DELETE COMMENT button
+        for (let comment of docs) {
+          // if (comment.userId._id.toString() === logged.toString()) {
+          //   console.log('match');
+          //   comment.owner = 25;
+          //   console.log(comment);
+          // }
+          comment.owner = comment.userId._id.toString() === req.user._id.toString();
+          // console.log(comment.userId._id, req.user._id);
+          // comment.save();
+          console.log(comment);
+        }
+      })
+      .then(() => {
         res.render('recipe/single', { recipe, comments });
       });
   }).catch(error => {
@@ -104,6 +125,7 @@ router.get('/:id', (req, res, next) => {
   });
 });
 
+// POST Router to create a comment which includes content+username+image(optional)
 router.post('/:id/comment', (req, res, next) => {
   const data = {
     content: req.body.content,
@@ -120,6 +142,7 @@ router.post('/:id/comment', (req, res, next) => {
     });
 });
 
+//POST Router to delete comment, action is in one POST button attached to the comment in the SINGLE view
 router.post('/:recipeId/comment/:commentId/delete', (req, res, next) => {
   const { recipeId, commentId } = req.params;
   console.log(recipeId, commentId);

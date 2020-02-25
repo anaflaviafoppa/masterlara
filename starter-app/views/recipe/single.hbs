@@ -33,9 +33,13 @@
 
 {{#each comments}}
 <img src="{{userId.picture}} " alt="">
-<p>{{userId.name}}</p>
+<p><strong>{{userId.name}}</strong></p>
 <p>{{content}}</p>
 
+{{#if owner}}
+
 <form action="/recipe/{{recipe}}/comment/{{_id}}/delete" method="POST"><button>Delete comment</button></form>
+
+{{/if}}
 
 {{/each}}
