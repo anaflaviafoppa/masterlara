@@ -1,5 +1,9 @@
 'use strict';
 
+
+
+
+
 const { Router } = require('express');
 const router = new Router();
 //const routeGuard = require('./../middleware/route-guard');
@@ -102,7 +106,9 @@ router.get('/:id', (req, res, next) => {
   const { id } = req.params;
 
   const recipeSearch = req.user.recipeSearch;
-  console.log(recipeSearch);
+  //console.log(recipeSearch);
+
+
 
   let recipe;
   const Recipe = axios.get(
@@ -110,13 +116,38 @@ router.get('/:id', (req, res, next) => {
   );
   Recipe.then(output => {
     recipe = output.data[0];
+
+    //console.log(recipe.ingredientLines);
+
+    const ingredientLines = recipe.ingredientLines;
+    recipe.ingredientsStorage = [];
+    recipe.ingredientsNotStorage = [];
+    
+    for(let i=0;i<recipeSearch.length;i++) {
+      for(let j=0;j<ingredientLines.length;j++) {
+
+        const incluido = ingredientLines[j].toLowerCase().includes(recipeSearch[i]);
+
+        if (incluido) {
+          recipe.ingredientsStorage.push(ingredientLines[j]);
+          
+          ingredientLines.splice(j,1);
+          
+          //console.log(ingredientsArray);
+          /*recipe.recipe.ingredientsStorage.push(ingredientLines[j]);
+          console.log(recipe.recipe.ingredientsStorage);*/
+        }else if(!incluido){
+          recipe.ingredientsNotStorage.push(ingredientLines[j]);
+        }
+      }
+    }
+
+    
     return Comment.find({ recipe: id })
       .populate('userId')
       .then(comments => {
 
-        
-
-        res.render('recipe/single', { recipe, comments });
+        res.render('recipe/single', { recipe, comments});
       });
   }).catch(error => {
     next(error);

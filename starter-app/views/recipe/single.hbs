@@ -12,7 +12,7 @@
     {{/each}}
   </ul>
 
-<h4>Ingredients:</h4>
+<h4>Ingredients - I dont have - Shop List</h4>
 
 <ul>
 {{#each ingredientLines}}
@@ -20,8 +20,17 @@
 {{/each}}
 </ul>
 
-<h4>INGREDIENTES QUE TENHO:</h4>
-{{ ingredientsStorage}}
+
+<h4>INGREDIENTs I have</h4>
+
+<ul>
+  {{#each ingredientsStorage}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+
+<br>
+
 <a href={{url}} target="_blank" >SEE MORE</a>
 
 
