@@ -113,4 +113,16 @@ router.post('/:id/comment', (req, res, next) => {
     });
 });
 
+router.post('/:recipeId/comment/:commentId/delete', (req, res, next) => {
+  const { recipeId, commentId } = req.params;
+  console.log(recipeId, commentId);
+  Comment.findByIdAndDelete(commentId)
+    .then(() => {
+      res.redirect(`/recipe/${recipeId}`);
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
 module.exports = router;
