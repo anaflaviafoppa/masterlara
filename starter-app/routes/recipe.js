@@ -26,11 +26,28 @@ router.get('/search', (req, res, next) => {
 
   Recipe.then(output => {
     recipes = output.data.hits;
+    //SPLIT BY SPACE:
     let ingredientsArray = params.q.split(' ');
+
+
+    const percentageSort = (a, b) => {
+      if (a.percentage > b.percentage) {
+        return 1;
+      }
+
+      if (a.percentage < b.percentage) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    }
+
+    //VERIFICAR a quantidade de ingredientes que temos/ingredientes
     for (let recipe of recipes) {
       ingredientsArray = params.q.split(' ');
       let counter = 0;
       let recipeArray = recipe.recipe.ingredientLines;
+
       for (let i = 0; i < recipeArray.length; i++) {
         for (let j = 0; j < ingredientsArray.length; j++) {
           var incluido = recipeArray[i].includes(ingredientsArray[j]);
@@ -40,10 +57,24 @@ router.get('/search', (req, res, next) => {
             console.log(ingredientsArray);
           }
         }
-        recipe.percentage = ((counter / recipeArray.length) * 100).toFixed(0).toString() + '%';
+        recipe.percentage = ((counter / recipeArray.length) * 100).toFixed(0);
       }
     }
-    console.log(recipes);
+
+    console.log('PERCENTAGE '+ typeof recipes[0].percentage);
+
+    recipes.sort(function (a, b) {
+      if (parseInt(a.percentage) < parseInt(b.percentage)) {
+        return 1;
+      }
+      if (parseInt(a.percentage) > parseInt(b.percentage)) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    })
+
+    
 
     res.render('recipe/search', { recipes });
   }).catch(error => {
