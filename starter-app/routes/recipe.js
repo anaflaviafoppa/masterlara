@@ -6,7 +6,7 @@
 
 const { Router } = require('express');
 const router = new Router();
-//const routeGuard = require('./../middleware/route-guard');
+const routeGuard = require('./../middleware/route-guard');
 const Comment = require('./../models/comment');
 const User = require('./../models/user');
 
@@ -118,9 +118,8 @@ router.get('/:id', routeGuard, (req, res, next) => {
   );
   Recipe.then(output => {
     recipe = output.data[0];
-<<<<<<< HEAD
     // finding comments associated to that recipe and extracting the user info to display user name and user picture
-    return Comment.find({ recipe: id })
+    /*return Comment.find({ recipe: id })
       .populate('userId')
       .lean()
       .then(docs => {
@@ -141,8 +140,7 @@ router.get('/:id', routeGuard, (req, res, next) => {
         }
       })
       .then(() => {
-        res.render('recipe/single', { recipe, comments });
-=======
+        res.render('recipe/single', { recipe, comments });*/
 
     //console.log(recipe.ingredientLines);
 
@@ -175,7 +173,6 @@ router.get('/:id', routeGuard, (req, res, next) => {
       .then(comments => {
 
         res.render('recipe/single', { recipe, comments});
->>>>>>> fd88cab9926532757ad7861ecc4342bd8897df8d
       });
   }).catch(error => {
     next(error);
