@@ -42,7 +42,7 @@ passport.use(
             name,
             email,
             passwordHash: hash,
-            picture: '/images/profile.jpg'
+            picture: '/images/chef.png'
           });
         })
         .then(user => {

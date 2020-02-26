@@ -1,18 +1,14 @@
-<h1>Private</h1>
-<p>This page should only be accessible to authenticated users.</p>
-<span><strong>Name</strong>: {{user.name}}</span>
-<br />
-<span><strong>Email</strong>: {{user.email}}</span>
-<br>
-<a class="btn" href="/">Search for some recipe!</a>
 
-<img src="{{user.picture}}" alt="">
-
-<a class="btn" href="/{{user._id}}/edit-picture">Edit picture</a>
-<a class="btn" href="/{{user._id}}/edit">Edit profile</a>
-<form action="/{{user._id}}/delete" method="POST"><button class="btn delete">Delete your account</button></form>
-
-<form action="recipe/{{user._id}}/recipe-book" method="POST">
-   <button>Book</button> 
-</form>
- 
+<div class="container">
+   <div class="row">
+      <div class="media col-12">
+         <img src="{{user.picture}}" class="align-self-start mr-3 col-lg-5 col-12" alt="profile image">
+         <div class="media-body col-lg-5 col-sm-12 d-flex flex-column" style="height: 100%;">
+            <h4 class="mt-0">{{user.name}}</h4>
+            <p><strong>Email</strong>: {{user.email}}</p>
+            <a class="btn" href="recipe/{{user._id}}/recipe-book">My Recipe Book</a>
+            <a class="btn justify-self-end mt-auto" href="/{{user._id}}/edit" style="width: 100%;">Edit profile</a>
+         </div>
+      </div>
+   </div>
+</div>

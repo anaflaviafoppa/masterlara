@@ -1,22 +1,19 @@
-<h1>Recipe Book</h1>
 
+<div class="container">
+  <h1>{{user.name}}'s Recipe Book</h1>
+ 
+  <div class="row d-flex justify-content-around"></div>
 
-{{user.name}}
-<ul>
   
-  {{#each user.favoriteRecipes}}
-    <li>{{name}}</li>
-    <li><img src="{{image}}"></li>
-    <li>
-      <form action="/recipe/{{id }}" method="GET" class="d-inline">
-        <button>View Recipe</button>
-      </form>
-    </li>
+    {{#each user.favoriteRecipes}}
+
+      {{>recipebookcard}}    
     
-  {{/each}}
-</ul>
-  
+    {{/each}}
 
+  
+  </div>
+</div>
 
 
 

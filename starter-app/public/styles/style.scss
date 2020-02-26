@@ -83,7 +83,7 @@ button,
 .btn {
   padding: 1em;
   border: 1px solid $grey;
-  border-radius: 0;
+  border-radius: 3px;
   margin-bottom: 1em;
   font: inherit;
   color: inherit;
@@ -98,4 +98,15 @@ button,
 textarea {
   min-height: 8em;
   resize: vertical;
+}
+
+.card {
+  position: relative;
+  .percentage {
+    position: absolute;
+    background-color: $primary;
+    color: white;
+    padding: 0.25em 0.5em;
+    margin-top: 0.5em;
+  }
 }

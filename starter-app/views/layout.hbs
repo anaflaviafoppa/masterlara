@@ -11,14 +11,14 @@
     <nav>
       <img src="https://image.flaticon.com/icons/svg/2626/2626093.svg" alt="">
       {{#if user}}
+      <a href="/private">Hi, {{user.name}}!</a>
       <a href="/">Search</a>
-        <a href="/private">Hi, {{user.name}}!</a>
-        <form action="/authentication/sign-out" method="POST">
-          <button>Sign Out</button>
-        </form>
-        {{else}}
-        <a href="/authentication/sign-in">Sign In</a>
-        <a href="/authentication/sign-up">Sign Up</a>
+      <form action="/authentication/sign-out" method="POST">
+        <button>Sign Out</button>
+      </form>
+      {{else}}
+      <a href="/authentication/sign-in">Sign In</a>
+      <a href="/authentication/sign-up">Sign Up</a>
       {{/if}}
     </nav>
     {{{body}}}

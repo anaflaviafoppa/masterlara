@@ -91,24 +91,21 @@ router.get('/search', routeGuard, (req, res, next) => {
     });
 });
 
-
 //GET - Recipe Book
 /*router.get('/:id/recipe-book', (req,res,next) =>{
   res.render('recipe/recipebook');
 });*/
 
-router.post('/:id/recipe-book',(req,res,next) =>{
+router.get('/:id/recipe-book', (req, res, next) => {
   const id = req.params.id;
   let userRecipe;
 
-  User.findById(id)
-    .then(user => {
-      userRecipe = user;
+  User.findById(id).then(user => {
+    userRecipe = user;
 
-      console.log(userRecipe);
-      res.render('recipe/recipebook', { user });
-    })
-  
+    console.log(userRecipe);
+    res.render('recipe/recipebook', { user });
+  });
 });
 
 // Router for the SINGLE view. It displays the recipe API info and renders the comments related to that recipe
@@ -202,8 +199,7 @@ router.post('/:recipeId/comment/:commentId/delete', (req, res, next) => {
 });
 
 //POST router to add a recipe to Recipe BOOK
-router.post('/:recipeId/recipebook', (req,res,next) =>{
-
+router.post('/:recipeId/recipebook', (req, res, next) => {
   const id = req.params.recipeId;
 
   const Recipe = axios.get(
@@ -213,36 +209,34 @@ router.post('/:recipeId/recipebook', (req,res,next) =>{
   Recipe.then(output => {
     let recipe = output.data[0];
     console.log(recipe.label);
-  
+
     const idUser = req.user._id;
 
     const data = {
       id,
-      name:recipe.label,
+      name: recipe.label,
       image: recipe.image
     };
 
     let saveRecipe;
-  
+
     User.findById(idUser)
       .then(user => {
         saveRecipe = user;
         let counter = 0;
 
         //Verify if the user already have add the recipe:
-        for(let r=0; r<saveRecipe.favoriteRecipes.length;r++) {
-          if(saveRecipe.favoriteRecipes[r].name === data.name) {
+        for (let r = 0; r < saveRecipe.favoriteRecipes.length; r++) {
+          if (saveRecipe.favoriteRecipes[r].name === data.name) {
             counter++;
           }
         }
 
-        if(counter===0) {
+        if (counter === 0) {
           saveRecipe.favoriteRecipes.push(data);
           saveRecipe.save();
           counter = 0;
         }
-
-        
       })
       .then(() => {
         res.redirect(`/recipe/${id}`);
@@ -250,12 +244,7 @@ router.post('/:recipeId/recipebook', (req,res,next) =>{
       .catch(error => {
         next(error);
       });
-    });
+  });
 });
-
-
-
-
-
 
 module.exports = router;
