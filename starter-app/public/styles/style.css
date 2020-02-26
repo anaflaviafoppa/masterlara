@@ -18,13 +18,11 @@ nav {
   nav a,
   nav button {
     padding: 1em 0;
-    border: 0; }
-    nav a:not(:last-child),
-    nav button:not(:last-child) {
-      margin-right: 1em; }
-    nav a:first-child,
-    nav button:first-child {
-      margin-right: auto; }
+    border: 0;
+    margin-right: 1em; }
+  nav img {
+    width: 50px;
+    margin-right: auto; }
 
 h1,
 h2,

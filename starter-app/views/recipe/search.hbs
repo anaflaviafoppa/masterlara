@@ -1,14 +1,16 @@
-<h1>FUNCIONANI</h1>
+<h1>Recipes for you:</h1>
+<p>The percentage on each reciope represents how much you already have to cook it</p>
 
 {{#each recipes}}
 
+<div class="recipe-card">
 {{#with recipe}}
-{{label}}
-<img src="{{image}}" alt="">
 
+{{>recipelist}}
 
-<form action="/recipe/{{ getID uri }}" method="GET" class="d-inline">          {{!-- <input class="hidden" type="text" name="data" value="{{getData recipe}}" /> --}}          <button>View Recipe</button>        </form>
 {{/with}}
-{{ percentage }}%
+
+<p>{{ percentage }}%</p>
+</div>
 
 {{/each}}

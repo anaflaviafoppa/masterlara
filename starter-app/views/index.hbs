@@ -1,31 +1,32 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 
+<header>
+<div class="welcome-msg">
+<h1>Master Lara</h1>
+<p>Find recipes using everything you have at home. <br>If something is missing you share with a friend and they can bring it to you!</p>
+</div>
 
 {{#if user}}
 
-<form action="/recipe/search/">
-  <label for="item">Search your recipe</label>
-  <input type="text" id="item" name="item" placeholder="">
-
-  {{!-- <input id="health1" type="checkbox" name="health" value="alcohol-free">
-  <label for="health1"> Alcohol-free</label><br>
-
-  <input id="health2" type="checkbox" name="health" value="celery-free">
-  <label for="health2"> Celery-free</label><br>
-
-  <input id="health3" type="checkbox" name="health" value="Boat" checked>
-  <label for="health3"> I have a boat</label><br><br>
-  --}}
+<form class="main-search" action="/recipe/search/">
+  <label for="item">Insert here every ingredient you have separated by spaces:</label>
+  <input type="text" id="item" name="item" placeholder="IE: carrot onion garlic cheese banana">
 
 <button>Search</button>
 </form>
-
 {{else}}
 
-<p>you need to be signed up</p>
 
-<a class="btn" href="/authentication/sign-up">Sign Up</a>
+<br>
+<div class="sign-blocks">
+<div>
+<p>To use our search you need to be logged in.</p>
 <a class="btn" href="/authentication/sign-in">Sign In</a>
+</div>
+<div>
+<p> If you don't have an account yet create one for free.</p>
+<a class="btn" href="/authentication/sign-up">Sign Up</a>
+</div>
+</div>
 
 {{/if}}
+</header>
