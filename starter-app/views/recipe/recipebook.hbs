@@ -1,0 +1,22 @@
+<h1>Recipe Book</h1>
+
+
+{{user.name}}
+<ul>
+  
+  {{#each user.favoriteRecipes}}
+    <li>{{name}}</li>
+    <li><img src="{{image}}"></li>
+    <li>
+      <form action="/recipe/{{id }}" method="GET" class="d-inline">
+        <button>View Recipe</button>
+      </form>
+    </li>
+    
+  {{/each}}
+</ul>
+  
+
+
+
+
