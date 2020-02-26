@@ -1,32 +1,38 @@
 
-<header>
-<div class="welcome-msg">
-<h1>Master Lara</h1>
-<p>Find recipes using everything you have at home. <br>If something is missing you share with a friend and they can bring it to you!</p>
-</div>
+<header class="jumbotron d-flex justify-content-center">
+  
+  <div class="d-flex align-items-center flex-column text-center">
+  <h1 class="display-4">Master Lara</h1>
+  Find recipes using everything you have at home. <br>If something is missing you share with a friend and they can bring it to you!</p>
+  <hr class="my-4">
+  </div>
+{{!-- </header> --}}
+
 
 {{#if user}}
 
 <form class="main-search" action="/recipe/search/">
-  <label for="item">Insert here every ingredient you have separated by spaces:</label>
+  <label for="item" class="">Insert here every ingredient you have separated by spaces:</label>
   <input type="text" id="item" name="item" placeholder="IE: carrot onion garlic cheese banana">
 
-<button>Search</button>
+  <button class="btn btn-primary btn-lg">Search</button>
 </form>
 {{else}}
 
 
-<br>
-<div class="sign-blocks">
-<div>
-<p>To use our search you need to be logged in.</p>
-<a class="btn" href="/authentication/sign-in">Sign In</a>
-</div>
-<div>
-<p> If you don't have an account yet create one for free.</p>
-<a class="btn" href="/authentication/sign-up">Sign Up</a>
-</div>
+<div class="sign-blocks d-flex justify-content-md-around">
+  <div class="d-flex align-items-center flex-column">
+    <p>To use our search you need to be logged in.</p>
+    <a class="btn btn-primary btn-lg" href="/authentication/sign-in" role="button">Sign In</a>
+  </div>
+  
+  <div class="d-flex align-items-center flex-column">
+    <p> If you don't have an account yet create one for free.</p>
+    <a class="btn btn-primary btn-lg" href="/authentication/sign-up" role="button">Sign Up</a>
+  </div>
+
 </div>
 
 {{/if}}
+
 </header>

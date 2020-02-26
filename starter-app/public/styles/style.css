@@ -2,9 +2,8 @@
   box-sizing: border-box; }
 
 body {
-  max-width: 52em;
-  padding: 0 1em;
-  margin: 0 auto;
+  padding: 0;
+  margin: 0;
   font-family: sans-serif;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 2; }
@@ -14,12 +13,19 @@ a {
   text-decoration: none; }
 
 nav {
-  display: flex; }
+  display: flex;
+  padding: 0.7em;
+  align-items: center; }
   nav a,
   nav button {
     padding: 1em 0;
     border: 0;
-    margin-right: 1em; }
+    margin-right: 1em;
+    margin-bottom: 0; }
+    nav a:hover,
+    nav button:hover {
+      text-decoration: none;
+      color: purple; }
   nav img {
     width: 50px;
     margin-right: auto; }
@@ -35,6 +41,12 @@ p {
   h3:not(:last-child),
   p:not(:last-child) {
     margin-bottom: 1rem; }
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 700px; }
 
 img {
   width: 100%;

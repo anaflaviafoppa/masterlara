@@ -1,5 +1,6 @@
 $font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $grey: hsla(0, 0, 75%, 0.5);
+$primary: purple;
 
 * {
   &,
@@ -10,9 +11,8 @@ $grey: hsla(0, 0, 75%, 0.5);
 }
 
 body {
-  max-width: 52em;
-  padding: 0 1em;
-  margin: 0 auto;
+  padding: 0;
+  margin: 0;
   font-family: sans-serif;
   font-family: $font-sans;
   line-height: 2;
@@ -25,11 +25,18 @@ a {
 
 nav {
   display: flex;
+  padding: 0.7em;
+  align-items: center;
   a,
   button {
     padding: 1em 0;
     border: 0;
     margin-right: 1em;
+    margin-bottom: 0;
+    &:hover {
+      text-decoration: none;
+      color: $primary;
+    }
   }
   img {
     width: 50px;
@@ -46,6 +53,18 @@ p {
   &:not(:last-child) {
     margin-bottom: 1rem;
   }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 700px;
+  // .sign-blocks {
+  //   display: flex;
+  //   justify-content: space-evenly;
+  //   align-items: baseline;
+  // }
 }
 
 img {
