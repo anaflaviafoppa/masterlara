@@ -91,6 +91,26 @@ router.get('/search', routeGuard, (req, res, next) => {
     });
 });
 
+
+//GET - Recipe Book
+/*router.get('/:id/recipe-book', (req,res,next) =>{
+  res.render('recipe/recipebook');
+});*/
+
+router.post('/:id/recipe-book',(req,res,next) =>{
+  const id = req.params.id;
+  let userRecipe;
+
+  User.findById(id)
+    .then(user => {
+      userRecipe = user;
+
+      console.log(userRecipe);
+      res.render('recipe/recipebook', { user });
+    })
+  
+});
+
 // Router for the SINGLE view. It displays the recipe API info and renders the comments related to that recipe
 router.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
@@ -232,5 +252,10 @@ router.post('/:recipeId/recipebook', (req,res,next) =>{
       });
     });
 });
+
+
+
+
+
 
 module.exports = router;
