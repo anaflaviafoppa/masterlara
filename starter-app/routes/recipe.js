@@ -1,9 +1,5 @@
 'use strict';
 
-
-
-
-
 const { Router } = require('express');
 const router = new Router();
 const routeGuard = require('./../middleware/route-guard');
@@ -26,19 +22,15 @@ router.get('/search', routeGuard, (req, res, next) => {
 
   let ingredientsArray = params.q.split(' ');
 
-  
-
   const id = req.user._id;
   //console.log(ingredientsArray);
-  
-  User
-    .findById(id)
-    .then((user) => {
+
+  User.findById(id)
+    .then(user => {
       user.recipeSearch = ingredientsArray;
       user.save();
     })
-    .then(()=> {
-
+    .then(() => {
       let recipes;
 
       // Activate API > send request
@@ -47,14 +39,14 @@ router.get('/search', routeGuard, (req, res, next) => {
       Recipe.then(output => {
         recipes = output.data.hits;
         //SPLIT BY SPACE:
-        
+
         //VERIFICAR a quantidade de ingredientes que temos/ingredientes
         for (let recipe of recipes) {
           //otimizar por array a busca:
-          ingredientsArray = params.q.split(' '); 
+          ingredientsArray = params.q.split(' ');
 
           //quantos ingredientes da receita são iguais ao que possuimos na geladeira:
-          let counter = 0; 
+          let counter = 0;
 
           //array de Ingredientes do API:
           const recipeArray = recipe.recipe.ingredientLines;
@@ -62,7 +54,6 @@ router.get('/search', routeGuard, (req, res, next) => {
 
           for (let i = 0; i < recipeArray.length; i++) {
             for (let j = 0; j < ingredientsArray.length; j++) {
-            
               const incluido = recipeArray[i].toLowerCase().includes(ingredientsArray[j]);
 
               if (incluido) {
@@ -79,7 +70,6 @@ router.get('/search', routeGuard, (req, res, next) => {
           }
         }
 
-
         //Ordenar as recipes por porcentagem:
         recipes.sort((a, b) => {
           if (parseInt(a.percentage) < parseInt(b.percentage)) {
@@ -94,12 +84,11 @@ router.get('/search', routeGuard, (req, res, next) => {
 
         //Renderizar as informações
         res.render('recipe/search', { recipes });
-
       });
-
-  }).catch(error => {
-    next(error);
-  });
+    })
+    .catch(error => {
+      next(error);
+    });
 });
 
 // Router for the SINGLE view. It displays the recipe API info and renders the comments related to that recipe
@@ -109,8 +98,6 @@ router.get('/:id', routeGuard, (req, res, next) => {
   const recipeSearch = req.user.recipeSearch;
   //console.log(recipeSearch);
 
-
-
   let recipe;
   let comments;
   const Recipe = axios.get(
@@ -118,65 +105,50 @@ router.get('/:id', routeGuard, (req, res, next) => {
   );
   Recipe.then(output => {
     recipe = output.data[0];
-    // finding comments associated to that recipe and extracting the user info to display user name and user picture
-    /*return Comment.find({ recipe: id })
-      .populate('userId')
-      .lean()
-      .then(docs => {
-        comments = docs;
-        const logged = req.user._id;
-        console.log('docs', docs[0].userId._id, logged);
-        // pass to view if the user is the author of the comment, then he will see the DELETE COMMENT button
-        for (let comment of docs) {
-          // if (comment.userId._id.toString() === logged.toString()) {
-          //   console.log('match');
-          //   comment.owner = 25;
-          //   console.log(comment);
-          // }
-          comment.owner = comment.userId._id.toString() === req.user._id.toString();
-          // console.log(comment.userId._id, req.user._id);
-          // comment.save();
-          console.log(comment);
-        }
-      })
-      .then(() => {
-        res.render('recipe/single', { recipe, comments });*/
 
     //console.log(recipe.ingredientLines);
 
     const ingredientLines = recipe.ingredientLines;
     recipe.ingredientsStorage = [];
     recipe.ingredientsNotStorage = [];
-    
-    for(let i=0;i<recipeSearch.length;i++) {
-      for(let j=0;j<ingredientLines.length;j++) {
 
+    for (let i = 0; i < recipeSearch.length; i++) {
+      for (let j = 0; j < ingredientLines.length; j++) {
         const incluido = ingredientLines[j].toLowerCase().includes(recipeSearch[i]);
 
         if (incluido) {
           recipe.ingredientsStorage.push(ingredientLines[j]);
-          
-          ingredientLines.splice(j,1);
-          
+
+          ingredientLines.splice(j, 1);
+
           //console.log(ingredientsArray);
           /*recipe.recipe.ingredientsStorage.push(ingredientLines[j]);
           console.log(recipe.recipe.ingredientsStorage);*/
-        }else if(!incluido){
+        } else if (!incluido) {
           recipe.ingredientsNotStorage.push(ingredientLines[j]);
         }
       }
     }
 
-    
     return Comment.find({ recipe: id })
       .populate('userId')
-      .then(comments => {
+      .lean();
+  })
+    .then(docs => {
+      // finding comments associated to that recipe and extracting the user info to display user name and user picture
+      comments = docs;
+      // pass to view if the user is the author of the comment, then he will see the DELETE COMMENT button
+      for (let comment of docs) {
+        comment.owner = comment.userId._id.toString() === req.user._id.toString();
+      }
+    })
+    .then(() => {
+      res.render('recipe/single', { recipe, comments });
+    })
 
-        res.render('recipe/single', { recipe, comments});
-      });
-  }).catch(error => {
-    next(error);
-  });
+    .catch(error => {
+      next(error);
+    });
 });
 
 // POST Router to create a comment which includes content+username+image(optional)
