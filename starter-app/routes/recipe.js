@@ -183,8 +183,55 @@ router.post('/:recipeId/comment/:commentId/delete', (req, res, next) => {
 
 
 //POST router to add a recipe to Recipe BOOK
-router.post('/recipe/:recipeId/recipebook', (req,res,next) =>{
-  const {}
+router.post('/:recipeId/recipebook', (req,res,next) =>{
+
+  const id = req.params.recipeId;
+
+  const Recipe = axios.get(
+    `https://api.edamam.com/search?r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${id}&app_id=${RECIPE_API_ID}&app_key=${RECIPE_API_KEY}`
+  );
+
+  Recipe.then(output => {
+    let recipe = output.data[0];
+    console.log(recipe.label);
+  
+    const idUser = req.user._id;
+
+    const data = {
+      id,
+      name:recipe.label,
+      image: recipe.image
+    };
+
+    let saveRecipe;
+  
+    User.findById(idUser)
+      .then(user => {
+        saveRecipe = user;
+        let counter = 0;
+
+        //Verify if the user already have add the recipe:
+        for(let r=0; r<saveRecipe.favoriteRecipes.length;r++) {
+          if(saveRecipe.favoriteRecipes[r].name === data.name) {
+            counter++;
+          }
+        }
+
+        if(counter===0) {
+          saveRecipe.favoriteRecipes.push(data);
+          saveRecipe.save();
+          counter = 0;
+        }
+
+        
+      })
+      .then(() => {
+        res.redirect(`/recipe/${id}`);
+      })
+      .catch(error => {
+        next(error);
+      });
+    });
 });
 
 module.exports = router;
