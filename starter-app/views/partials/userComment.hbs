@@ -1,0 +1,20 @@
+
+<div class="row">
+    <div class="col-3">
+      <img class="img-fluid rounded float-left" src="{{userId.picture}} " alt="">
+    </div>
+
+    <div class="col-9">
+      <p><strong>{{userId.name}}</strong></p>
+      <p>{{content}}</p>
+
+      {{#if owner}}
+        <form action="/recipe/{{recipe}}/comment/{{_id}}/delete" method="POST"><button>Delete comment</button></form>
+      {{/if}}
+    </div>
+</div>
+
+
+
+
+

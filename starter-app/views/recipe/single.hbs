@@ -1,76 +1,104 @@
 
+<section class="container">
+  <div class="row">
+    {{#with recipe}}
 
+    <!--FIRST COLUMN-->
+    <div class="col-md-5">
 
+      <!--
+      <form action="/recipe/{{getID uri}}/recipebook" method="POST">
+        <button>Add Recipe Book</button>
+      </form>-->
+     
+     <form action="/recipe/{{getID uri}}/recipebook" method="POST">
+     
+        <a href="#" onclick="modifyImage()">
+          <img id="imageLike"  class="imageLikeSingle" src="https://res.cloudinary.com/ddz8awd1y/image/upload/v1582735090/LIke/dislike_v9or0v.png">
+        </a>
+      
+     </form>
+     
+     
+  
+      
+      <img class="rounded " src="{{image}}" alt="">
+    </div><!--/COLUMN-->
 
+     <!--FIRST COLUMN-->
+    <div class="col-md-7">
+      <h2>{{label}}</h2>
+
+      <!--DESCRIPTION-->
+      <div class="row mb-5">
+        <div class="col-md">
+          <p>Servings: {{yield}} people</p>
+        </div>
+
+        <div class="col-md">
+          <p>Calories: {{number calories}}kcal</p>
+        </div>
+      </div>
+      <!--/DESCRIPTION-->
+
+      <!--INGREDIENTS-->
+      <div class="row">
+
+        <div class="col-md-8">
+          <h5>Ingredients</h5>
+          <ul>
+            {{#each ingredientsStorage}}<!--Ingredients - I have-->
+              <li>{{this}}</li>
+            {{/each}}
+
+            {{#each ingredientLines}}<!--Ingredients - I dont have-->
+              <li>{{this}}</li> 
+            {{/each}}
+          </ul>
+        </div><!--/INGREDIENTS-->
+
+        <!--HEALTH INFOS-->
+        <div class="col-md-4">
+          <h5>Health info</h5>
+            <ul>
+              {{#each healthLabels}}
+              <li>{{this}}</li> 
+              {{/each}}
+            </ul>
+        </div><!--/HEALTH INFOS-->
+        
+      </div><!--/INGREDIENTS ROW-->
+      
+      <div class="d-flex justify-content-between">
+        <a href={{url}} target="_blank" >SEE MORE</a>
+        <a href="https://api.whatsapp.com/send?text=Let's%20cook%20{{label}}%20together?%20just%20bring:{{#each ingredientLines}}%0D-%20{{this}}%20{{/each}}%20%0Dxoxo" id="whatsapp-share-btt" rel="nofollow" target="_blank">Invite a friend via WhatsApp</a>
+      </div>
+      
+
+    </div><!--/COLUMN-->
+
+    {{/with}}
+  </div><!--/ROW-->
+  
 {{#with recipe}}
-<h1>{{label}}</h1>
-<img src="{{image}}" alt="">
 
-<form action="/recipe/{{getID uri}}/recipebook" method="POST">
-  <button>Add Recipe Book</button>
-</form>
+  <form action="/recipe/{{getID uri}}/recipebook" method="POST">
+    <button>Add Recipe Book</button>
+  </form>
 
-
-<p>Servings: {{yield}} people</p>
-<p>Calories: {{number calories}}kcal</p>
-
-<h4>Health info</h4>
-  <ul>
-    {{#each healthLabels}}
-    <li>{{this}}</li> 
-    {{/each}}
-  </ul>
-
-<h4>Ingredients - I dont have - Shop List</h4>
-
-<ul>
-{{#each ingredientLines}}
-<li>{{this}}</li> 
-{{/each}}
-</ul>
-
-
-<h4>INGREDIENTs I have</h4>
-
-<ul>
-  {{#each ingredientsStorage}}
-    <li>{{this}}</li>
-  {{/each}}
-</ul>
-
-<br>
-
-<a href={{url}} target="_blank" >SEE MORE</a>
-
-<a href="https://api.whatsapp.com/send?text=Let's%20cook%20{{label}}%20together?%20just%20bring:{{#each ingredientLines}}%0D-%20{{this}}%20{{/each}}%20%0Dxoxo" id="whatsapp-share-btt" rel="nofollow" target="_blank">Invite a friend via WhatsApp</a>
-
-<h4>Comments:</h4>
-
-<form action="/recipe/{{ getID uri }}/comment" method="POST">
-<label for="content">Add comment</label>
-<input type="text" name="content" id="content" placeholder="Insert comment here...">
-<button>Comment</button>
-</form>
+  <h4>Comments:</h4>
+  <div class="row">
+      {{>comment}}
+  </div>
 {{/with}}
 
+</section>
 
+<section class="container">
+  
+  {{#each comments}}
+    {{> userComment}}
+  {{/each}}
+   
+</section>
 
-
-
-{{#each comments}}
-<img src="{{userId.picture}} " alt="">
-<p><strong>{{userId.name}}</strong></p>
-<p>{{content}}</p>
-
-{{#if owner}}
-
-<form action="/recipe/{{recipe}}/comment/{{_id}}/delete" method="POST"><button>Delete comment</button></form>
-
-{{/if}}
-
-{{/each}}
-
-<script>
-
-
-</script>
