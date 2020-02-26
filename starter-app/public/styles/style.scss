@@ -29,12 +29,11 @@ nav {
   button {
     padding: 1em 0;
     border: 0;
-    &:not(:last-child) {
-      margin-right: 1em;
-    }
-    &:first-child {
-      margin-right: auto;
-    }
+    margin-right: 1em;
+  }
+  img {
+    width: 50px;
+    margin-right: auto;
   }
 }
 
