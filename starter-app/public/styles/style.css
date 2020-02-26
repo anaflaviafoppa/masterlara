@@ -62,7 +62,7 @@ button,
 .btn {
   padding: 1em;
   border: 1px solid rgba(191, 191, 191, 0.5);
-  border-radius: 0;
+  border-radius: 3px;
   margin-bottom: 1em;
   font: inherit;
   color: inherit;
@@ -76,6 +76,7 @@ textarea {
   min-height: 8em;
   resize: vertical; }
 
+<<<<<<< HEAD
 .imageLikeSingle {
   position: absolute;
   left: 80%;
@@ -83,5 +84,15 @@ textarea {
   z-index: 1;
   width: auto;
   height: 5em; }
+=======
+.card {
+  position: relative; }
+  .card .percentage {
+    position: absolute;
+    background-color: purple;
+    color: white;
+    padding: 0.25em 0.5em;
+    margin-top: 0.5em; }
+>>>>>>> 8b815f054b7630506be456b24b7107d0dfbf892f
 
 /*# sourceMappingURL=style.css.map */

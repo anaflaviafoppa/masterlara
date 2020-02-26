@@ -1,7 +1,16 @@
-{{label}}
-<img src="{{image}}" alt="">
+
+<div class="col-lg-3 col-md-5 col-12 d-flex justify-content-md-between justify-content-sm-around m-2 p-0">
+<div class="card border-0" style="width: 18rem;">
+  <img src="{{recipe.image}}" class="card-img-top rounded-bottom" alt="{{recipe.label}}">
+  <p class="percentage rounded-right">{{ percentage }}%</p>
+  <div class="card-body px-0 py-4">
+    <h5 class="card-title pb-4">{{recipe.label}}</h5>
+    <a href="/recipe/{{ getID recipe.uri }}" class="btn btn-primary" style="width: 100%;">View Recipe</a>
+  </div>
+</div>
+</div>
 
 
-<form action="/recipe/{{ getID uri }}" method="GET" class="d-inline">
-<button>View Recipe</button>
-</form>
+
+
+

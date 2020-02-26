@@ -1,3 +1,7 @@
+<div class="container px-5">
+
+
+
 <form action="/{{user._id}}/edit" method="POST" >
   <label for="name">Name</label>
   <input type="text" id="name" name="name" value="{{user.name}}"/>
@@ -8,3 +12,7 @@
 
   <button>Save changes</button>
 </form>
+
+<a class="btn" href="/{{user._id}}/edit-picture" style="width: 100%;">Edit picture</a><br>
+<form action="/{{user._id}}/delete" method="POST"><button class="btn delete">Delete your account</button></form>
+ </div>
