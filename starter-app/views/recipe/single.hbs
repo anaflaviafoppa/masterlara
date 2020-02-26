@@ -1,7 +1,16 @@
 
+
+
+
 {{#with recipe}}
 <h1>{{label}}</h1>
 <img src="{{image}}" alt="">
+
+<form method="POST" action="/recipe/{{getID uri}}/recipebook">
+  <button>Add Recipe Book</button>
+</form>
+
+
 <p>Servings: {{yield}} people</p>
 <p>Calories: {{number calories}}kcal</p>
 

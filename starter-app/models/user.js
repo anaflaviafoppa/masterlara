@@ -2,6 +2,20 @@
 
 const mongoose = require('mongoose');
 
+const favoriteRecipes = new mongoose.Schema({
+  name:{
+    type: String
+  },
+  id:{
+    type:String
+  },
+  image:{
+    type:String
+  }
+});
+
+
+
 const schema = new mongoose.Schema({
   name: {
     type: String,
@@ -19,7 +33,8 @@ const schema = new mongoose.Schema({
   recipeSearch:{
     type: [String]
   },
-  picture: { type: String }
+  picture: { type: String },
+  favoriteRecipes: [favoriteRecipes]
 });
 
 module.exports = mongoose.model('User', schema);
