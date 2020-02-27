@@ -35,10 +35,9 @@
           <h1 class="mt-5"><span class="master">Master</span></h1>
           <h2><span class="lara">Lara</span></h2>
           
-          <div class="description">
-            <p>Find recipes using everything you have at home. </p>
-            <p>If something is missing you share with a friend and they can bring it to you!</p>
-          </div>
+          
+
+          
           
           {{!-- <hr class="my-4"> --}}
 
@@ -52,6 +51,10 @@
           <button class="btn btn-primary btn-lg">Search</button>
         </form>
       
+      {{else}}
+
+        {{> description}}
+        
       </div>
       {{/if}}
 

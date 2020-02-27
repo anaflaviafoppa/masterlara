@@ -74,21 +74,6 @@ nav {
   .header > div {
     z-index: 7; }
     .header > div p {
-<<<<<<< HEAD
-      font-size: 24px;
-      font-weight: lighter; }
-  .header .bg-img {
-    height: 105%;
-    top: 0;
-    left: 0;
-    background-image: url("/images/depositphotos_126383742-stock-photo-interior-with-yellow-fridge-3d.jpg");
-    background-blend-mode: multiply;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    z-index: -1; }
-=======
       font-size: 15px;
       font-weight: lighter;
       margin-bottom: 0.1rem;
@@ -100,14 +85,15 @@ nav {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1px;
-    margin-bottom: 0.01rem; }
+    margin-bottom: 0.01rem;
+    color: black; }
   .header .lara {
     text-transform: uppercase;
     font-size: 60px;
-    letter-spacing: 40px; }
+    letter-spacing: 40px;
+    color: black; }
   .header .description {
     padding-bottom: 50px; }
->>>>>>> 711202f9de63f3163bfb59cc53fd30f94f429450
 
 img {
   width: 100%;
