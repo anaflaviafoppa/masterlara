@@ -17,6 +17,9 @@ const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const hbs = require('hbs');
 
+//NODEMAILER - send a welcome message:
+const nodemailer = require('nodemailer');
+
 //RECIPE ROUTE:
 const recipeRoute = require('./routes/recipe');
 
@@ -59,12 +62,11 @@ app.use(
     cookie: {
       maxAge: 60 * 60 * 24 * 15 * 1000,
       sameSite: 'lax',
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production'
+      httpOnly: true
     },
     store: new (connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
-      ttl: 60 * 60 * 24 
+      ttl: 60 * 60 * 24
     })
   })
 );

@@ -11,11 +11,11 @@ router.get('/sign-up', (req, res, next) => {
 });
 
 router.post(
-  '/sign-up',
+  '/sign-up', 
   passport.authenticate('local-sign-up', {
     successRedirect: '/private',
     failureRedirect: '/sign-up'
-  })
+  }) 
 );
 
 router.get('/sign-in', (req, res, next) => {
