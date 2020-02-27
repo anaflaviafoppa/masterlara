@@ -15,14 +15,17 @@
      
 {{#if ../user.isFavorite}}
 
-        <a href="#">
-          <img id="imageLike"  class="imageLikeSingle" src="https://res.cloudinary.com/ddz8awd1y/image/upload/v1582735089/LIke/like_bzch3o.png">
-        </a>
+{{!-- recipe that I like --}}
+        <button class="imageLikeSingle">
+          <img id="imageLike" src="/images/heart.svg">
+        </button>
 
 {{else}}
-        <a href="#">
-          <img id="imageLike"  class="imageLikeSingle" src="https://res.cloudinary.com/ddz8awd1y/image/upload/v1582735090/LIke/dislike_v9or0v.png">
-        </a>
+
+{{!-- recipe that I don't like --}}
+        <button class="imageLikeSingle">
+          <img id="imageLike" src="/images/empty-heart.svg">
+        </button>
 
 {{/if}}
  
@@ -57,11 +60,11 @@
           <h5>Ingredients</h5>
           <ul>
             {{#each ingredientsStorage}}<!--Ingredients - I have-->
-              <li>{{this}}</li>
+              <li class="my-ingredients">{{this}}</li>
             {{/each}}
 
             {{#each ingredientLines}}<!--Ingredients - I dont have-->
-              <li>{{this}}</li> 
+              <li class="missing-ingredients">{{this}}</li> 
             {{/each}}
           </ul>
         </div><!--/INGREDIENTS-->
@@ -91,9 +94,9 @@
   
 {{#with recipe}}
 
-  <form action="/recipe/{{getID uri}}/recipebook" method="POST">
+  {{!-- <form action="/recipe/{{getID uri}}/recipebook" method="POST">
     <button>Add Recipe Book</button>
-  </form>
+  </form> --}}
 
   <h4>Comments:</h4>
   <div class="row">

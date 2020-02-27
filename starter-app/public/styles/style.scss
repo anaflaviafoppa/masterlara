@@ -56,15 +56,16 @@ p {
 }
 
 header {
+  background-image: url('/images/3199.jpg');
+  background-color: rgb(250, 12, 12);
+  background-blend-mode: multiply;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 700px;
-  // .sign-blocks {
-  //   display: flex;
-  //   justify-content: space-evenly;
-  //   align-items: baseline;
-  // }
 }
 
 img {
@@ -100,14 +101,22 @@ textarea {
   resize: vertical;
 }
 
-.imageLikeSingle{
+.imageLikeSingle {
   position: absolute;
-  left: 80%;
-  top: 0em;
-  z-index:1;
+  display: flex;
+  align-items: center;
+  left: 82%;
+  top: 1em;
+  // z-index: 1;
   width: auto;
-  height: 5em;
-
+  height: 3.5em;
+  padding: 0;
+  border: 0;
+  img {
+    width: auto;
+    height: 3em;
+    margin: 0;
+  }
 }
 
 .card {
@@ -119,4 +128,12 @@ textarea {
     padding: 0.25em 0.5em;
     margin-top: 0.5em;
   }
+}
+
+.missing-ingredients {
+  color: rgb(160, 9, 9);
+}
+
+.my-ingredients {
+  color: rgb(38, 126, 38);
 }

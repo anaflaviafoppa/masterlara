@@ -156,6 +156,8 @@ router.get('/:id', routeGuard, (req, res, next) => {
       // finding comments associated to that recipe and extracting the user info to display user name and user picture
       comments = docs;
       // pass to view if the user is the author of the comment, then he will see the DELETE COMMENT button
+      
+      
       for (let comment of docs) {
         comment.owner = comment.userId._id.toString() === req.user._id.toString();
       }
