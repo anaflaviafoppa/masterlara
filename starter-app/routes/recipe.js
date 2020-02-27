@@ -117,6 +117,7 @@ router.get('/:id', routeGuard, (req, res, next) => {
 
   let recipe;
   let comments;
+  let user;
   const Recipe = axios.get(
     `https://api.edamam.com/search?r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${id}&app_id=${RECIPE_API_ID}&app_key=${RECIPE_API_KEY}`
   );
@@ -158,9 +159,29 @@ router.get('/:id', routeGuard, (req, res, next) => {
       for (let comment of docs) {
         comment.owner = comment.userId._id.toString() === req.user._id.toString();
       }
+
+      return User.findById(req.user._id).lean();
+    })
+    .then(doc => {
+      user = doc;
+      let counter = 0;
+
+      //Verify if the user already have add the recipe:
+      for (let r = 0; r < user.favoriteRecipes.length; r++) {
+        if (user.favoriteRecipes[r].name === recipe.label) {
+          counter++;
+        }
+      }
+
+      if (counter > 0) {
+        user.isFavorite = true;
+      } else {
+        user.isFavorite = false;
+      }
+      console.log(user);
     })
     .then(() => {
-      res.render('recipe/single', { recipe, comments });
+      res.render('recipe/single', { recipe, comments, user });
     })
 
     .catch(error => {

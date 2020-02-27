@@ -13,10 +13,19 @@
      
      <form action="/recipe/{{getID uri}}/recipebook" method="POST">
      
-        <a href="#" onclick="modifyImage()">
+{{#if ../user.isFavorite}}
+
+        <a href="#">
+          <img id="imageLike"  class="imageLikeSingle" src="https://res.cloudinary.com/ddz8awd1y/image/upload/v1582735089/LIke/like_bzch3o.png">
+        </a>
+
+{{else}}
+        <a href="#">
           <img id="imageLike"  class="imageLikeSingle" src="https://res.cloudinary.com/ddz8awd1y/image/upload/v1582735090/LIke/dislike_v9or0v.png">
         </a>
-      
+
+{{/if}}
+ 
      </form>
      
      
