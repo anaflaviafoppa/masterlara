@@ -1,15 +1,16 @@
 
-<div class="row">
+<div class="row py-5">
     <div class="col-3">
       <img class="img-fluid rounded float-left" src="{{userId.picture}} " alt="">
     </div>
 
-    <div class="col-9">
-      <p><strong>{{userId.name}}</strong></p>
-      <p>{{content}}</p>
-
+    <div class="col-9 d-flex flex-column">
+      <div>
+        <p><strong>{{userId.name}}</strong></p>
+        <p>{{content}}</p>
+      </div>
       {{#if owner}}
-        <form action="/recipe/{{recipe}}/comment/{{_id}}/delete" method="POST"><button>Delete comment</button></form>
+        <form action="/recipe/{{recipe}}/comment/{{_id}}/delete" method="POST" class="justify-self-end mt-auto"><button>Delete comment</button></form>
       {{/if}}
     </div>
 </div>

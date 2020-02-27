@@ -1,9 +1,10 @@
-$font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap');
+$font-sans: 'Montserrat', sans-serif;
 $grey: hsla(0, 0, 75%, 0.5);
 $primary: #a442bc;
 $pink: #ff4a73;
 $orange: #ffa31d;
-$orange-layer: rgba(0, 0, 0, 0.5);
+$orange-layer: #2b2b2ba1;
 $yellow: #f9d335;
 $green: #44c7b6;
 $blue: #3193f3;
@@ -54,9 +55,9 @@ nav {
   }
 }
 
-// .home-nav {
-//   background-color: none;
-// }
+.home-nav {
+  color: $green;
+}
 
 h1,
 h2,
@@ -80,14 +81,18 @@ p {
   > div {
     padding-top: 100px;
     z-index: 7;
+    p {
+      font-size: 24px;
+      font-weight: lighter;
+    }
   }
   .bg-img {
     height: 105%;
     top: 0;
     left: 0;
-    transform: scale(1.1);
-    background-image: url('/images/3199.jpg');
-    //     // opacity: 0.9;
+    // transform: scale(1.1);
+    background-image: url('/images/depositphotos_126383742-stock-photo-interior-with-yellow-fridge-3d.jpg');
+    // opacity: 0.7;
     background-color: $orange-layer;
     background-blend-mode: multiply;
     background-position: center;
@@ -95,8 +100,8 @@ p {
     background-size: cover;
     position: absolute;
     z-index: -1;
-    -webkit-filter: blur(1.5px);
-    filter: blur(1.5px);
+    // -webkit-filter: blur(1.5px);
+    // filter: blur(1.5px);
   }
 }
 
@@ -110,11 +115,9 @@ form {
   flex-direction: column;
 }
 
-// input {
-//   max-width: 700px;
-//   min-width: 415px;
-//   align-self: center;
-// }
+input {
+  opacity: 0.9;
+}
 
 input,
 textarea,
