@@ -57,14 +57,14 @@ app.use(
     resave: true,
     saveUninitialized: false,
     cookie: {
-      maxAge: 60 * 60 * 24 * 15,
+      maxAge: 60 * 60 * 24 * 15 * 1000,
       sameSite: 'lax',
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production'
     },
     store: new (connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
-      ttl: 60 * 60 * 24
+      ttl: 60 * 60 * 24 
     })
   })
 );
