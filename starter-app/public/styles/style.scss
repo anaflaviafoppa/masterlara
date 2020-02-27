@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Raleway:400,500|Montserrat:400,500");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i");
+
 $font-sans: 'Montserrat', sans-serif;
 $grey: hsla(0, 0, 75%, 0.5);
 $primary: #a442bc;
@@ -8,6 +11,7 @@ $gray: #222222a1;
 $yellow: #f9d335;
 $green: #44c7b6;
 $blue: #3193f3;
+$colortextHome: #565656;
 
 * {
   &,
@@ -59,6 +63,9 @@ nav {
     border: 0;
     margin-right: 1.5em;
     margin-bottom: 0;
+    font-family: 'Poppins', ;
+    color:$colortextHome;
+    font-weight: 700;
     &:hover {
       text-decoration: none;
       color: $primary;
@@ -77,22 +84,46 @@ nav {
   color: $green;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 711202f9de63f3163bfb59cc53fd30f94f429450
 .header {
   position: relative;
-  // top: -90;
-
-  height: 750px;
-  color: white;
+  
+  //Background characters
+  background-image: url('/images/Home/fresh-vegetables-home.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-left: 35px solid white;
+  border-right: 35px solid white;
+  color:black;
+  //height: 750px;
   z-index: 5;
-  overflow: hidden;
-  > div {
+  //overflow: hidden;
+
+  h1{
     padding-top: 100px;
+    margin-bottom: 0.1px;
+  }
+
+  h2{
+    padding-bottom: 30px;
+  }
+  > div {
+    
     z-index: 7;
     p {
-      font-size: 24px;
+      font-size: 15px;
       font-weight: lighter;
+      margin-bottom: 0.1rem;
+      font-family: 'Poppins', ;
+      color:black;
+
     }
   }
+<<<<<<< HEAD
   .bg-img {
     height: 105%;
     top: 0;
@@ -109,6 +140,29 @@ nav {
     z-index: -1;
     // -webkit-filter: blur(1.5px);
     // filter: blur(1.5px);
+=======
+
+  
+
+  .master{
+    font-size: 180px;
+    font-family: 'Poppins', ;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1px;
+    margin-bottom: 0.01rem;
+  }
+
+  .lara{
+    text-transform: uppercase;
+    font-size: 60px;
+    letter-spacing: 40px;
+    
+  }
+
+  .description{
+    padding-bottom: 50px;
+>>>>>>> 711202f9de63f3163bfb59cc53fd30f94f429450
   }
 }
 
@@ -168,7 +222,6 @@ textarea {
   align-items: center;
   left: 82%;
   top: 1.25em;
-  // z-index: 1;
   width: auto;
   height: 2.75em;
   padding: 0;

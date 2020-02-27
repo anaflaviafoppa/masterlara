@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Raleway:400,500|Montserrat:400,500");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i");
 *, *:before, *:after {
   box-sizing: border-box; }
 
@@ -37,7 +39,10 @@ nav {
     padding: 1em 0;
     border: 0;
     margin-right: 1.5em;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    font-family: "Poppins";
+    color: #565656;
+    font-weight: 700; }
     nav a:hover,
     nav button:hover {
       text-decoration: none;
@@ -53,14 +58,23 @@ nav {
 
 .header {
   position: relative;
-  height: 750px;
-  color: white;
-  z-index: 5;
-  overflow: hidden; }
-  .header > div {
+  background-image: url("/images/Home/fresh-vegetables-home.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-left: 35px solid white;
+  border-right: 35px solid white;
+  color: black;
+  z-index: 5; }
+  .header h1 {
     padding-top: 100px;
+    margin-bottom: 0.1px; }
+  .header h2 {
+    padding-bottom: 30px; }
+  .header > div {
     z-index: 7; }
     .header > div p {
+<<<<<<< HEAD
       font-size: 24px;
       font-weight: lighter; }
   .header .bg-img {
@@ -74,6 +88,26 @@ nav {
     background-size: cover;
     position: absolute;
     z-index: -1; }
+=======
+      font-size: 15px;
+      font-weight: lighter;
+      margin-bottom: 0.1rem;
+      font-family: "Poppins";
+      color: black; }
+  .header .master {
+    font-size: 180px;
+    font-family: "Poppins";
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1px;
+    margin-bottom: 0.01rem; }
+  .header .lara {
+    text-transform: uppercase;
+    font-size: 60px;
+    letter-spacing: 40px; }
+  .header .description {
+    padding-bottom: 50px; }
+>>>>>>> 711202f9de63f3163bfb59cc53fd30f94f429450
 
 img {
   width: 100%;

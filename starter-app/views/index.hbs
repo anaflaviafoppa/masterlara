@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
+
   <body>
     <nav class="home-nav">
-      <img src="https://image.flaticon.com/icons/svg/2626/2626093.svg" alt="">
+      <img src="/images/Home/Capturar.PNG" alt="">
       {{#if user}}
       <a href="/private">Hi, {{user.name}}!</a>
       <a href="/">Search</a>
@@ -22,44 +23,43 @@
       {{/if}}
     </nav>
 
-<header class="jumbotron d-flex justify-content-center p-5 header">
-  <img class="bg-img" src="" alt="">
-  <div>
-    <div class="d-flex align-items-center flex-column text-center">
-      <h1 class="display-4"><strong>Master Lara</strong></h1>
-      <p>Find recipes using everything you have at home. <br>If something is missing you share with a friend and they can bring it to you!</p>
-      <hr class="my-4">
-    </div>
+<header class="d-flex justify-content-start header">
+  {{!-- <img class="bg-img p-5" src="" alt=""> --}}
 
+  <div class="container">
+     <!--ROW-->
+    <div class="row">
+      <div class="col-md-7 col-sm-12"><!--COL-->
+        
 
+          <h1 class="mt-5"><span class="master">Master</span></h1>
+          <h2><span class="lara">Lara</span></h2>
+          
+          <div class="description">
+            <p>Find recipes using everything you have at home. </p>
+            <p>If something is missing you share with a friend and they can bring it to you!</p>
+          </div>
+          
+          {{!-- <hr class="my-4"> --}}
 
-{{#if user}}
+      <!--INPUT - IF LOGIN -->
+      {{#if user}}
 
-<form class="main-search" action="/recipe/search/">
-  <label for="item" class="">Insert here every ingredient you have separated by spaces:</label>
-  <input type="text" id="item" name="item" placeholder="IE: carrot onion garlic cheese banana">
+        <form class="main-search" action="/recipe/search/">
+          <label for="item" class="">Insert here every ingredient you have separated by spaces:</label>
+          <input type="text" id="item" name="item" placeholder="IE: carrot onion garlic cheese banana">
 
-  <button class="btn btn-primary btn-lg">Search</button>
-</form>
-{{else}}
+          <button class="btn btn-primary btn-lg">Search</button>
+        </form>
+      
+      </div>
+      {{/if}}
 
-
-<div class="sign-blocks d-flex justify-content-md-around">
-  <div class="d-flex align-items-center flex-column">
-    <p>To use our search you need to be logged in.</p>
-    <a class="btn btn-primary btn-lg" href="/authentication/sign-in" role="button">Sign In</a>
-  </div>
+      </div><!--/COL-->
+    </div><!--/ROW-->
+  </div><!--/container-->
+ 
   
-  <div class="d-flex align-items-center flex-column">
-    <p> If you don't have an account yet create one for free.</p>
-    <a class="btn btn-primary btn-lg" href="/authentication/sign-up" role="button">Sign Up</a>
-  </div>
-
-</div>
-
-{{/if}}
-
-</div>
 </header>
 
     <script src="/scripts/script.js"></script>
