@@ -240,6 +240,7 @@ router.post('/:recipeId/recipebook', (req, res, next) => {
       })
       .then(() => {
         res.redirect(`/recipe/${id}`);
+        
       })
       .catch(error => {
         next(error);
