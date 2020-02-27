@@ -25,7 +25,7 @@ nav {
     nav a:hover,
     nav button:hover {
       text-decoration: none;
-      color: purple; }
+      color: #a442bc; }
   nav img {
     width: 50px;
     margin-right: auto; }
@@ -87,29 +87,29 @@ textarea {
   display: flex;
   align-items: center;
   left: 82%;
-  top: 1em;
+  top: 1.25em;
   width: auto;
-  height: 3.5em;
+  height: 2.75em;
   padding: 0;
   border: 0; }
   .imageLikeSingle img {
     width: auto;
-    height: 3em;
+    height: 2.25em;
     margin: 0; }
 
 .card {
   position: relative; }
   .card .percentage {
     position: absolute;
-    background-color: purple;
+    background-color: #a442bc;
     color: white;
     padding: 0.25em 0.5em;
     margin-top: 0.5em; }
 
 .missing-ingredients {
-  color: #a00909; }
+  color: #ff4a73; }
 
 .my-ingredients {
-  color: #267e26; }
+  color: #44c7b6; }
 
 /*# sourceMappingURL=style.css.map */

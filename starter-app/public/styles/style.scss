@@ -1,6 +1,11 @@
 $font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $grey: hsla(0, 0, 75%, 0.5);
-$primary: purple;
+$primary: #a442bc;
+$pink: #ff4a73;
+$orange: #ffa31d;
+$yellow: #f9d335;
+$green: #44c7b6;
+$blue: #3193f3;
 
 * {
   &,
@@ -106,15 +111,15 @@ textarea {
   display: flex;
   align-items: center;
   left: 82%;
-  top: 1em;
+  top: 1.25em;
   // z-index: 1;
   width: auto;
-  height: 3.5em;
+  height: 2.75em;
   padding: 0;
   border: 0;
   img {
     width: auto;
-    height: 3em;
+    height: 2.25em;
     margin: 0;
   }
 }
@@ -131,9 +136,9 @@ textarea {
 }
 
 .missing-ingredients {
-  color: rgb(160, 9, 9);
+  color: $pink;
 }
 
 .my-ingredients {
-  color: rgb(38, 126, 38);
+  color: $green;
 }
