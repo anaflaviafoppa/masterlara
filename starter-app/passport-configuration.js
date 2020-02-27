@@ -6,6 +6,21 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/user');
 const bcryptjs = require('bcryptjs');
 
+const nodemailer = require('nodemailer');
+
+const EMAIL =  process.env.EMAIL_USER;
+const PASSWORD = process.env.EMAIL_PASSWORD;
+
+const transporter = nodemailer.createTransport({
+  //...
+  service:'Gmail',
+  auth:{
+    user: EMAIL,
+    pass: PASSWORD
+  }
+});
+
+
 passport.serializeUser((user, callback) => {
   callback(null, user._id);
 });
@@ -29,9 +44,11 @@ passport.use(
     },
     (req, email, password, callback) => {
       const name = req.body.name;
+      let user;
+
       User.findOne({ email })
-        .then(user => {
-          if (user) {
+        .then(doc => {
+          if (doc) {
             return Promise.reject(new Error('EMAIL_ALREADY_REGISTERED'));
           } else {
             return bcryptjs.hash(password, 10);
@@ -45,8 +62,19 @@ passport.use(
             picture: '/images/chef.png'
           });
         })
-        .then(user => {
-          callback(null, user);
+        .then(userCreated => {
+          user = userCreated;
+
+          transporter.sendMail({
+            from: `Test <${EMAIL}>`,
+            to: user.email,
+            subject:'test email',
+            //text: 'Hello World!'
+            html:"Hello<strong>world</strong>"
+          });
+        })
+        .then(() => {
+          callback(null,user);
         })
         .catch(error => {
           callback(error);
