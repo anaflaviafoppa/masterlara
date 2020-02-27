@@ -23,7 +23,6 @@ router.get('/search', routeGuard, (req, res, next) => {
   let ingredientsArray = params.q.split(' ');
 
   const id = req.user._id;
-  //console.log(ingredientsArray);
 
   User.findById(id)
     .then(user => {
@@ -59,14 +58,14 @@ router.get('/search', routeGuard, (req, res, next) => {
               if (incluido) {
                 counter++;
                 ingredientsArray.splice(j, 1);
-                //console.log(ingredientsArray);
+                
                 recipe.recipe.ingredientsStorage.push(recipeArray[i]);
               }
             }
             //criar uma KEY com o valor da porcentagem:
             recipe.percentage = ((counter / recipeArray.length) * 100).toFixed(0);
 
-            //console.log(recipes[0].recipe);
+           
           }
         }
 
@@ -102,8 +101,7 @@ router.get('/:id/recipe-book', (req, res, next) => {
 
   User.findById(id).then(user => {
     userRecipe = user;
-
-    console.log(userRecipe);
+console.log
     res.render('recipe/recipebook', { user });
   });
 });
@@ -113,7 +111,6 @@ router.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
 
   const recipeSearch = req.user.recipeSearch;
-  //console.log(recipeSearch);
 
   let recipe;
   let comments;
@@ -180,7 +177,7 @@ router.get('/:id', routeGuard, (req, res, next) => {
       } else {
         user.isFavorite = false;
       }
-      console.log(user);
+      
     })
     .then(() => {
       res.render('recipe/single', { recipe, comments, user });
@@ -211,7 +208,7 @@ router.post('/:id/comment', (req, res, next) => {
 //POST Router to delete comment, action is in one POST button attached to the comment in the SINGLE view
 router.post('/:recipeId/comment/:commentId/delete', (req, res, next) => {
   const { recipeId, commentId } = req.params;
-  console.log(recipeId, commentId);
+
   Comment.findByIdAndDelete(commentId)
     .then(() => {
       res.redirect(`/recipe/${recipeId}`);
@@ -231,7 +228,7 @@ router.post('/:recipeId/recipebook', (req, res, next) => {
 
   Recipe.then(output => {
     let recipe = output.data[0];
-    console.log(recipe.label);
+    
 
     const idUser = req.user._id;
 
@@ -247,22 +244,34 @@ router.post('/:recipeId/recipebook', (req, res, next) => {
       .then(user => {
         saveRecipe = user;
         let counter = 0;
-
+        let index = null;
+        console.log('PRIMEIRO DE TUDO ' + counter)
         //Verify if the user already have add the recipe:
         for (let r = 0; r < saveRecipe.favoriteRecipes.length; r++) {
           if (saveRecipe.favoriteRecipes[r].name === data.name) {
             counter++;
+            index = r;
+            console.log(counter);
           }
         }
 
         if (counter === 0) {
           saveRecipe.favoriteRecipes.push(data);
           saveRecipe.save();
+          
+        }else if(counter>0) {
           counter = 0;
+          console.log('TIRARRRR DO FAVORITOOOOOOOOOOOOO');
+          saveRecipe.favoriteRecipes.splice(index,1);
+          saveRecipe.save();
+          
+          console.log('Segundo '+ counter);
+
         }
       })
       .then(() => {
         res.redirect(`/recipe/${id}`);
+        
       })
       .catch(error => {
         next(error);
