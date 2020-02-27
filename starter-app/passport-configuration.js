@@ -66,11 +66,11 @@ passport.use(
           user = userCreated;
 
           transporter.sendMail({
-            from: `Test <${EMAIL}>`,
+            from: `Master Lara <${EMAIL}>`,
             to: user.email,
-            subject:'test email',
+            subject:'Welcome to Master Lara!',
             //text: 'Hello World!'
-            html:"Hello<strong>world</strong>"
+            html:"<h1>Welcome Master Lara!</h1><p>Teste</p>"
           });
         })
         .then(() => {
