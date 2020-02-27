@@ -4,7 +4,7 @@ $grey: hsla(0, 0, 75%, 0.5);
 $primary: #a442bc;
 $pink: #ff4a73;
 $orange: #ffa31d;
-$orange-layer: #2b2b2ba1;
+$gray: #222222a1;
 $yellow: #f9d335;
 $green: #44c7b6;
 $blue: #3193f3;
@@ -27,7 +27,25 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  &:not(full-recipe) {
+    text-decoration: none;
+  }
+}
+
+h2,
+h1 {
+  color: $pink;
+  margin-bottom: 0;
+}
+
+h5,
+h4 {
+  color: $primary;
+}
+
+p,
+li {
+  color: $gray;
 }
 
 nav {
@@ -59,17 +77,6 @@ nav {
   color: $green;
 }
 
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-  line-height: inherit;
-  &:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-}
-
 .header {
   position: relative;
   // top: -90;
@@ -93,7 +100,7 @@ p {
     // transform: scale(1.1);
     background-image: url('/images/depositphotos_126383742-stock-photo-interior-with-yellow-fridge-3d.jpg');
     // opacity: 0.7;
-    background-color: $orange-layer;
+    // background-color: $orange-layer;
     background-blend-mode: multiply;
     background-position: center;
     background-repeat: no-repeat;
@@ -117,6 +124,10 @@ form {
 
 input {
   opacity: 0.9;
+  border-radius: 3px;
+  border: solid 1px #dfdfdf;
+  background-color: rgba(197, 197, 197, 0.02);
+  color: black;
 }
 
 input,
@@ -131,6 +142,13 @@ button,
   color: inherit;
   &:not(input) {
     background-color: transparent;
+    transition: background-color 300ms ease-in;
+    font-weight: bold;
+    color: $gray;
+    &:hover:not(.imageLikeSingle) {
+      background-color: $pink;
+      border: $pink;
+    }
   }
 }
 
@@ -164,6 +182,17 @@ textarea {
 
 .card {
   position: relative;
+  overflow: hidden;
+  img {
+    transition: transform 300ms ease-in;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .btn {
+    margin-bottom: 0;
+    width: 100%;
+  }
   .percentage {
     position: absolute;
     background-color: $primary;
@@ -179,4 +208,42 @@ textarea {
 
 .my-ingredients {
   color: $green;
+}
+
+.ingredients-list {
+  list-style-type: '- ';
+  padding-left: 10px;
+}
+
+#whatsapp-share-btn {
+  background-color: #25d366;
+  color: white;
+  border-radius: 3px;
+  padding: 10px;
+  transition: all 300ms ease-in;
+  &:hover {
+    background-color: white;
+    border: #25d366;
+    color: #25d366;
+  }
+  .whatsapp-icon {
+    width: 40px;
+    padding-right: 10px;
+  }
+}
+
+.error-page {
+  width: 100%;
+  height: 800px;
+  background-color: #eeece5;
+  background-image: url('/images/error-page.jpg');
+  background-color: $gray;
+  background-blend-mode: multiply;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.error-msg {
+  color: white;
 }
