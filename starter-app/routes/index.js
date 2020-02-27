@@ -7,7 +7,7 @@ const routeGuard = require('./../middleware/route-guard');
 const User = require('./../models/user');
 
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Hello World!' });
+  res.render('index', { layout: false });
 });
 
 router.get('/private', routeGuard, (req, res, next) => {
