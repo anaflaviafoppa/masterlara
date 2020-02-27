@@ -1,10 +1,10 @@
 
-<section class="container">
+<section class="container pt-5">
   <div class="row">
     {{#with recipe}}
 
     <!--FIRST COLUMN-->
-    <div class="col-md-5">
+    <div class="col-lg-5">
 
       <!--
       <form action="/recipe/{{getID uri}}/recipebook" method="POST">
@@ -98,7 +98,7 @@
     <button>Add Recipe Book</button>
   </form> --}}
 
-  <h4>Comments:</h4>
+  <h4 class="pt-5">Comments:</h4>
   <div class="row">
       {{>comment}}
   </div>
@@ -106,7 +106,7 @@
 
 </section>
 
-<section class="container">
+<section class="container pt-5">
   
   {{#each comments}}
     {{> userComment}}

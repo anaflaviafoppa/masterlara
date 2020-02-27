@@ -1,8 +1,8 @@
 
 <div class="col">
   <form action="/recipe/{{ getID uri }}/comment" method="POST">
-    <label for="content">Add comment:</label>
-    <input type="text" name="content" id="content" placeholder="Insert comment here...">
+    {{!-- <label for="content">Add comment:</label> --}}
+    <input type="text" name="content" id="content" placeholder="Insert comment here..." style="height: 120px;">
     <button>Comment</button>
   </form>
 </div>
