@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head> 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>{{title}}</title>
+
+    <!-- Favicon and touch icons  -->
+    <link href="/images/favicon.png" rel="apple-touch-icon" sizes="48x48">
+    <link href="/images/apple-touch-icon-32-precomposed.png" rel="apple-touch-icon-precomposed">
+    <link href="/images/favicon.png" rel="shortcut icon">
+    
+    <title>Master Lara</title>
 
     <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -42,7 +48,7 @@
 
            <li class="nav-item">
              <form class="signout" action="/authentication/sign-out" method="POST">
-              <button>Sign Out</button>
+              <button class="signout">Sign Out</button>
             </form>
            </li>
           {{else }}
@@ -88,7 +94,7 @@
             
             <div class="d-flex justify-content-between align-items-center">
               <input style="width: 55%;" class="rounded-pill" type="text" id="item" name="item" placeholder="IE: carrot onion garlic cheese banana">
-              <button type="button" class="btn btn-primary btn-sm rounded-pill btn-search">Search the perfect recipe</button>
+              <button type="button" class="btn btn-home btn-primary btn-sm rounded-pill btn-search">Search the perfect recipe</button>
             </div>
           </form>
 

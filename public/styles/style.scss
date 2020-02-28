@@ -16,15 +16,15 @@ $gray: #4b4944;
 
 $primary: #a442bc;
 $orange: #ffa31d;
-// $yellow: #f9d335;
+$yellow: #f9d335;
 $green: #44c7b6;
 $blue: #3193f3;
 $colortextHome: #565656;
 $layout-breakpoint-small: 767px;
 $layout-breakpoint-big: 964px;
- 
 
 body {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: sans-serif;
@@ -82,7 +82,8 @@ li {
   }
 }
 
-#navbarHome {
+#navbarHome,
+nav {
   display: flex;
   padding: 0.7em;
   align-items: center;
@@ -96,47 +97,55 @@ li {
     font-family: 'Poppins';
     color: white;
     font-weight: 300;
+    background-color: transparent;
     &:hover {
       text-decoration: none;
-      color: $primary;
+      color: $yellow;
+      background-color: transparent;
     }
   }
   img {
     width: 50px;
     margin-right: auto;
   }
-  &:not(.home-nav) {
-    background-color: rgba(0, 0, 0, 0);
+  &:not(#navbarHome) {
+    background-image: url('/images/3199.jpg');
+    background-position: center;
+    background-color: $dark;
+    background-blend-mode: multiply;
+    // opacity: 0.4;
   }
 }
 
-nav {
-  display: flex;
-  padding: 0.7em;
-  align-items: center;
-  color: $light;
-  a,
-  button {
-    padding: 1em 0;
-    border: 0;
-    margin-right: 1.5em;
-    margin-bottom: 0;
-    font-family: 'Poppins';
-    color: $light;
-    font-weight: 300;
-    &:hover {
-      text-decoration: none;
-      color: $primary;
-    }
-  }
-  img {
-    width: 50px;
-    margin-right: auto;
-  }
-  &:not(.home-nav) {
-    background-color: $dark;
-  }
-}
+//     background-color: $dark;
+//   display: flex;
+//   padding: 0.7em;
+//   align-items: center;
+//   color: $light;
+//   a,
+//   button {
+//     padding: 1em 0;
+//     border: 0;
+//     margin-right: 1.5em;
+//     margin-bottom: 0;
+//     font-family: 'Poppins';
+//     color: $light;
+//     font-weight: 300;
+//     background-color: transparent;
+//     &:hover {
+//       text-decoration: none;
+//       background-color: transparent;
+//       color: $primary;
+//     }
+//   }
+//   img {
+//     width: 50px;
+//     margin-right: auto;
+//   }
+//   &:not(.home-nav) {
+//     background-color: $dark;
+//   }
+// }
 
 .home-nav {
   color: white;
@@ -217,9 +226,11 @@ img {
   max-width: 100%;
 }
 
-form {
+form:not(.formHome):not(.new-comment) {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 560px;
 }
 
 input {
@@ -228,82 +239,32 @@ input {
   border: solid 1px #dfdfdf;
   background-color: rgba(255, 255, 255, 1);
   color: black;
-}
-
-input,
-textarea,
-button,
-.btn {
   padding: 1em;
   border-radius: 3px;
   margin-bottom: 1em;
+  width: 100%;
+}
+
+textarea,
+button,
+.btn {
+  border-radius: 3px;
   font: inherit;
-  &:not(input) {
-    border: 0;
+  &:not(.signout) {
+    margin-bottom: 1em;
     width: 210px;
-    background-color: $pink;
-    transition: background-color 300ms ease-in;
-    font-weight: bold;
-    color: $light;
-    &:hover:not(.imageLikeSingle) {
-      background-color: $dark-pink;
-      // background-color: $pink;
-      border: $pink;
-    }
-  }
-}
-
-.signout {
-  button {
-    color: white;
-    font-weight: 300;
-    line-height: 30px; /* <- changed this */
-    box-sizing: border-box;
-  }
-}
-
-@media (max-width: $layout-breakpoint-small) {
-  .signout {
-    button {
-      color: white;
-      text-align: left;
-      font-weight: 300;
-      line-height: 2px; /* <- changed this */
-      box-sizing: border-box;
-    }
-  }
-}
-
-.formHome {
-  p {
-    padding-bottom: 30px;
   }
 
-  button {
-    background-color: #3d201c;
-    color: white;
-    height: 50px;
-    border: 1px solid #3d201c;
-    vertical-align: center;
-    width: 40%;
-    line-height: 20px; /* <- changed this */
-    box-sizing: border-box;
-  }
-
-  button:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #3d201c;
-  }
-
-  input {
-    height: 50px;
-  }
-}
-
-@media (max-width: $layout-breakpoint-small) {
-  .btn-search {
-    color: red;
-    line-height: 15px; /* <- changed this */
+  padding: 1em;
+  border: 0;
+  background-color: $pink;
+  transition: background-color 300ms ease-in;
+  font-weight: bold;
+  color: $light;
+  &:hover:not(.imageLikeSingle):not(.signout) {
+    background-color: $dark-pink;
+    // background-color: $pink;
+    border: $pink;
   }
 }
 
@@ -385,6 +346,65 @@ h4.grey {
   }
 }
 
+.signout {
+  button {
+    color: white;
+    font-weight: 300;
+    line-height: 30px; /* <- changed this */
+    box-sizing: border-box;
+    background-color: transparent;
+    &:hover {
+      background-color: transparent;
+      color: $yellow;
+    }
+  }
+}
+
+@media (max-width: $layout-breakpoint-small) {
+  .signout {
+    button {
+      color: white;
+      text-align: left;
+      font-weight: 300;
+      line-height: 2px; /* <- changed this */
+      box-sizing: border-box;
+    }
+  }
+}
+
+.formHome {
+  p {
+    padding-bottom: 30px;
+  }
+
+  button.btn-home {
+    background-color: #3d201c;
+    color: white;
+    height: 50px;
+    border: 1px solid #3d201c;
+    vertical-align: center;
+    width: 40%;
+    line-height: 20px; /* <- changed this */
+    box-sizing: border-box;
+  }
+
+  button.btn-home:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #3d201c;
+  }
+
+  input {
+    height: 50px;
+  }
+}
+
+@media (max-width: $layout-breakpoint-small) {
+  .btn-search {
+    color: red;
+    line-height: 15px; /* <- changed this */
+  }
+}
+
 // .missing-ingredients {
 //   color: $pink;
 // }
@@ -441,8 +461,27 @@ h4.grey {
   }
 }
 
-.img-circle {
-  max-width: 170px;
+.img-comment {
+  width: 170px;
+}
+
+.img-profile {
+  width: 250px;
+}
+
+.private {
+  background-image: url('/images/3199.jpg');
+  background-color: $dark;
+  background-blend-mode: multiply;
+  height: 750px;
+  background-position: center;
+  h1 {
+    color: $light;
+  }
+  a.btn {
+    background-color: transparent;
+    border: 1px solid $light;
+  }
 }
 
 .error-page {

@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i");
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap");
 body {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: sans-serif;
@@ -47,12 +48,16 @@ li {
     background-size: cover;
     background-color: #f0523d; } }
 
-#navbarHome {
+#navbarHome,
+nav {
   display: flex;
   padding: 0.7em;
   align-items: center;
   color: white; }
   #navbarHome a,
+<<<<<<< HEAD
+  #navbarHome button,
+=======
   #navbarHome button {
     padding: 1em 0;
     border: 0;
@@ -76,6 +81,7 @@ nav {
   padding: 0.7em;
   align-items: center;
   color: #fbfbf6; }
+>>>>>>> 557563c6b9d70516e9ce6844d8568bc902bf8676
   nav a,
   nav button {
     padding: 1em 0;
@@ -83,17 +89,31 @@ nav {
     margin-right: 1.5em;
     margin-bottom: 0;
     font-family: 'Poppins';
-    color: #fbfbf6;
-    font-weight: 300; }
+    color: white;
+    font-weight: 300;
+    background-color: transparent; }
+    #navbarHome a:hover,
+    #navbarHome button:hover,
     nav a:hover,
     nav button:hover {
       text-decoration: none;
-      color: #a442bc; }
+      color: #f9d335;
+      background-color: transparent; }
+  #navbarHome img,
   nav img {
     width: 50px;
     margin-right: auto; }
+<<<<<<< HEAD
+  #navbarHome:not(#navbarHome),
+  nav:not(#navbarHome) {
+    background-image: url("/images/3199.jpg");
+    background-position: center;
+    background-color: #3d1f1c;
+    background-blend-mode: multiply; }
+=======
   nav:not(.home-nav) {
     background-color: #3d1f1c; }
+>>>>>>> 557563c6b9d70516e9ce6844d8568bc902bf8676
 
 .home-nav {
   color: white; }
@@ -146,28 +166,62 @@ nav {
         padding-top: 10px;
         color: white;
         font-size: 15px; } }
+<<<<<<< HEAD
+=======
+
+img {
+  width: 100%;
+  max-width: 100%; }
+>>>>>>> 557563c6b9d70516e9ce6844d8568bc902bf8676
 
 img {
   width: 100%;
   max-width: 100%; }
 
-form {
+form:not(.formHome):not(.new-comment) {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  align-items: center;
+  max-width: 560px; }
 
 input {
   opacity: 0.9;
   border-radius: 3px;
   border: solid 1px #dfdfdf;
   background-color: white;
+<<<<<<< HEAD
+  color: black;
+  padding: 1em;
+  border-radius: 3px;
+  margin-bottom: 1em;
+  width: 100%; }
+=======
   color: black; }
+>>>>>>> 557563c6b9d70516e9ce6844d8568bc902bf8676
 
-input,
 textarea,
 button,
 .btn {
-  padding: 1em;
   border-radius: 3px;
+<<<<<<< HEAD
+  font: inherit;
+  padding: 1em;
+  border: 0;
+  background-color: #ef5241;
+  transition: background-color 300ms ease-in;
+  font-weight: bold;
+  color: #fbfbf6; }
+  textarea:not(.signout),
+  button:not(.signout),
+  .btn:not(.signout) {
+    margin-bottom: 1em;
+    width: 210px; }
+  textarea:hover:not(.imageLikeSingle):not(.signout),
+  button:hover:not(.imageLikeSingle):not(.signout),
+  .btn:hover:not(.imageLikeSingle):not(.signout) {
+    background-color: #bb483b;
+    border: #ef5241; }
+=======
   margin-bottom: 1em;
   font: inherit; }
   input:not(input),
@@ -229,6 +283,7 @@ button,
     color: red;
     line-height: 15px;
     /* <- changed this */ } }
+>>>>>>> 557563c6b9d70516e9ce6844d8568bc902bf8676
 
 .delete {
   background-color: darkred;
@@ -290,6 +345,53 @@ h4.grey {
   width: 100%;
   max-width: 100%; }
 
+.signout button {
+  color: white;
+  font-weight: 300;
+  line-height: 30px;
+  /* <- changed this */
+  box-sizing: border-box;
+  background-color: transparent; }
+  .signout button:hover {
+    background-color: transparent;
+    color: #f9d335; }
+
+@media (max-width: 767px) {
+  .signout button {
+    color: white;
+    text-align: left;
+    font-weight: 300;
+    line-height: 2px;
+    /* <- changed this */
+    box-sizing: border-box; } }
+
+.formHome p {
+  padding-bottom: 30px; }
+
+.formHome button.btn-home {
+  background-color: #3d201c;
+  color: white;
+  height: 50px;
+  border: 1px solid #3d201c;
+  vertical-align: center;
+  width: 40%;
+  line-height: 20px;
+  /* <- changed this */
+  box-sizing: border-box; }
+
+.formHome button.btn-home:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #3d201c; }
+
+.formHome input {
+  height: 50px; }
+
+@media (max-width: 767px) {
+  .btn-search {
+    color: red;
+    line-height: 15px;
+    /* <- changed this */ } }
+
 .ingredients-list {
   list-style: none;
   padding-left: 0; }
@@ -329,8 +431,23 @@ h4.grey {
     color: #fbfbf6;
     text-decoration: none; }
 
-.img-circle {
-  max-width: 170px; }
+.img-comment {
+  width: 170px; }
+
+.img-profile {
+  width: 250px; }
+
+.private {
+  background-image: url("/images/3199.jpg");
+  background-color: #3d1f1c;
+  background-blend-mode: multiply;
+  height: 750px;
+  background-position: center; }
+  .private h1 {
+    color: #fbfbf6; }
+  .private a.btn {
+    background-color: transparent;
+    border: 1px solid #fbfbf6; }
 
 .error-page {
   width: 100%;
