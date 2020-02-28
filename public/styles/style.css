@@ -29,6 +29,13 @@ p,
 li {
   color: #222222a1; }
 
+.bodyHome {
+  background-image: url("/images/Home/fundo2.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f0523d; }
+
 nav {
   display: flex;
   padding: 0.7em;
@@ -51,18 +58,14 @@ nav {
     width: 50px;
     margin-right: auto; }
   nav:not(.home-nav) {
-    background-color: #ff4a73; }
+    background-color: rgba(0, 0, 0, 0); }
 
 .home-nav {
   color: white; }
 
 .header {
   position: relative;
-  background-image: url("/images/Home/fundo1.png");
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #f0523d;
+  padding-top: 100px;
   color: black;
   z-index: 5; }
   .header h1 {
@@ -78,30 +81,19 @@ nav {
       margin-bottom: 0.1rem;
       font-family: "Poppins";
       color: black; }
-  .header .master {
-    font-size: 180px;
-    font-family: "Poppins";
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1px;
-    margin-bottom: 0.01rem;
-    color: black; }
-  .header .lara {
-    text-transform: uppercase;
-    font-size: 60px;
-    letter-spacing: 40px;
-    color: black; }
   .header .description {
-    padding-bottom: 100px;
+    padding-bottom: 80px;
     font-family: "Poppins"; }
     .header .description :first-child {
       color: #3d201c;
-      font-size: 42px; }
-
-.plateHome {
-  height: auto;
-  scale: 1.5;
-  z-index: -2; }
+      font-size: 42px;
+      line-height: normal;
+      font-weight: 400; }
+    .header .description :last-child {
+      width: 70%;
+      padding-top: 10px;
+      color: white;
+      font-size: 18px; }
 
 img {
   width: 100%;
@@ -115,7 +107,7 @@ input {
   opacity: 0.9;
   border-radius: 3px;
   border: solid 1px #dfdfdf;
-  background-color: rgba(197, 197, 197, 0.02);
+  background-color: white;
   color: black; }
 
 input,
@@ -140,8 +132,37 @@ button,
     textarea:not(input):hover:not(.imageLikeSingle),
     button:not(input):hover:not(.imageLikeSingle),
     .btn:not(input):hover:not(.imageLikeSingle) {
-      background-color: #ff4a73;
       border: #ff4a73; }
+
+.signout {
+  color: red; }
+  .signout button {
+    color: white;
+    font-weight: 300;
+    line-height: 10px;
+    /* <- changed this */
+    box-sizing: border-box; }
+
+.formHome p {
+  padding-bottom: 30px; }
+
+.formHome button {
+  background-color: #3d201c;
+  color: white;
+  height: 50px;
+  border: 1px solid #3d201c;
+  vertical-align: center;
+  width: 40%;
+  line-height: 20px;
+  /* <- changed this */
+  box-sizing: border-box; }
+
+.formHome button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #3d201c; }
+
+.formHome input {
+  height: 50px; }
 
 .delete {
   background-color: darkred;
