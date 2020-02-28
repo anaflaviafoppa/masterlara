@@ -250,7 +250,7 @@ button,
 .btn {
   border-radius: 3px;
   font: inherit;
-  &:not(.signout) {
+  &:not(.signout):not(.imageLikeSingle) {
     margin-bottom: 1em;
     width: 210px;
   }
@@ -463,10 +463,14 @@ h4.grey {
 
 .img-comment {
   width: 170px;
+  border-radius: 50%;
 }
 
 .img-profile {
   width: 250px;
+  height: 250px;
+
+  border-radius: 50%;
 }
 
 .private {

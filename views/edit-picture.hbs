@@ -1,5 +1,14 @@
-<form action="/{{user._id}}/edit-picture" method="POST" enctype="multipart/form-data">
-<label for="picture">Picture</label>
+<div class="container px-5 pt-5">
+
+<div>
+  <a href="javascript:history.back()"><strong><   Back</strong></a>
+</div>
+
+
+<form action="/{{user._id}}/edit-picture" method="POST" enctype="multipart/form-data" class="mx-auto mt-5">
+<h2 class="mb-5 align-self-start">Editing {{user.name}}'s profile picture</h2>
+<label class="align-self-start" for="picture">Picture</label>
   <input type="file" accept="image/*" id="picture" name="picture">
-  <button>Save changes</button>
+  <button class="align-self-end">Save changes</button>
 </form>
+</div>

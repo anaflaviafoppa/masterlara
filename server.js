@@ -10,7 +10,9 @@ const PORT = parseInt(process.env.PORT, 10);
 const URI = process.env.MONGODB_URI;
 
 const terminate = error => {
-  if (error) debug(error);
+  if (error) {
+    debug(error);
+  }
   const exitCode = error && error instanceof Error ? 1 : 0;
   debug('Terminating node app.');
   mongoose.disconnect().finally(() => {

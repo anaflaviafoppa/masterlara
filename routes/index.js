@@ -84,7 +84,6 @@ const uploader = multer({ storage });
 router.post('/:id/edit-picture', uploader.single('picture'), (req, res, next) => {
   const { id } = req.params;
   const { url } = req.file;
-  console.log(req.file);
   const data = {
     picture: url
   };

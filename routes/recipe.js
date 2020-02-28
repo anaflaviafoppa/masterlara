@@ -58,14 +58,13 @@ router.get('/search', routeGuard, (req, res, next) => {
               if (incluido) {
                 counter++;
                 ingredientsArray.splice(j, 1);
-                
+
                 recipe.recipe.ingredientsStorage.push(recipeArray[i]);
               }
             }
+
             //criar uma KEY com o valor da porcentagem:
             recipe.percentage = ((counter / recipeArray.length) * 100).toFixed(0);
-
-           
           }
         }
 
@@ -101,7 +100,7 @@ router.get('/:id/recipe-book', (req, res, next) => {
 
   User.findById(id).then(user => {
     userRecipe = user;
-console.log
+    console.log;
     res.render('recipe/recipebook', { user });
   });
 });
@@ -144,6 +143,12 @@ router.get('/:id', routeGuard, (req, res, next) => {
         }
       }
     }
+    recipe.percentage = (
+      (recipe.ingredientsStorage.length /
+        (recipe.ingredientsStorage.length + recipe.ingredientLines.length)) *
+      100
+    ).toFixed(0);
+    console.log(recipe.ingredientsStorage, recipe.ingredientLines, recipe.percentage);
 
     return Comment.find({ recipe: id })
       .populate('userId')
@@ -153,8 +158,7 @@ router.get('/:id', routeGuard, (req, res, next) => {
       // finding comments associated to that recipe and extracting the user info to display user name and user picture
       comments = docs;
       // pass to view if the user is the author of the comment, then he will see the DELETE COMMENT button
-      
-      
+
       for (let comment of docs) {
         comment.owner = comment.userId._id.toString() === req.user._id.toString();
       }
@@ -177,7 +181,6 @@ router.get('/:id', routeGuard, (req, res, next) => {
       } else {
         user.isFavorite = false;
       }
-      
     })
     .then(() => {
       res.render('recipe/single', { recipe, comments, user });
@@ -228,7 +231,6 @@ router.post('/:recipeId/recipebook', (req, res, next) => {
 
   Recipe.then(output => {
     let recipe = output.data[0];
-    
 
     const idUser = req.user._id;
 
@@ -245,7 +247,7 @@ router.post('/:recipeId/recipebook', (req, res, next) => {
         saveRecipe = user;
         let counter = 0;
         let index = null;
-        console.log('PRIMEIRO DE TUDO ' + counter)
+        console.log('PRIMEIRO DE TUDO ' + counter);
         //Verify if the user already have add the recipe:
         for (let r = 0; r < saveRecipe.favoriteRecipes.length; r++) {
           if (saveRecipe.favoriteRecipes[r].name === data.name) {
@@ -258,20 +260,17 @@ router.post('/:recipeId/recipebook', (req, res, next) => {
         if (counter === 0) {
           saveRecipe.favoriteRecipes.push(data);
           saveRecipe.save();
-          
-        }else if(counter>0) {
+        } else if (counter > 0) {
           counter = 0;
           console.log('TIRARRRR DO FAVORITOOOOOOOOOOOOO');
-          saveRecipe.favoriteRecipes.splice(index,1);
+          saveRecipe.favoriteRecipes.splice(index, 1);
           saveRecipe.save();
-          
-          console.log('Segundo '+ counter);
 
+          console.log('Segundo ' + counter);
         }
       })
       .then(() => {
         res.redirect(`/recipe/${id}`);
-        
       })
       .catch(error => {
         next(error);
