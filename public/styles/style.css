@@ -362,4 +362,11 @@ h4.grey {
     width: 300px;
     height: auto; }
 
+.btnTag {
+  background-color: #878683;
+  margin-left: 10px;
+  height: 10px;
+  line-height: 5px;
+  /* <- changed this */ }
+
 /*# sourceMappingURL=style.css.map */
