@@ -9,59 +9,61 @@
   </head>
 
   <body>
+    
     <nav class="home-nav" style="background-color: #f0523d;">
-      <img src="/images/Home/Capturar.PNG" alt="">
-      {{#if user}}
-      <a href="/private">Hi, {{user.name}}!</a>
-      <a href="/">Search</a>
-      <form action="/authentication/sign-out" method="POST">
-        <button>Sign Out</button>
-      </form>
-      {{else}}
-      <a href="/authentication/sign-in">Sign In</a>
-      <a href="/authentication/sign-up">Sign Up</a>
-      {{/if}}
+       
+        <img style="width:auto;height:1.5em"src="/images/Home/masterlara.png" alt="">
+
+          {{#if user}}
+          <a href="/private">Hi, {{user.name}}!</a>
+          <a href="/">Search</a>
+          <form action="/authentication/sign-out" method="POST">
+            <button>Sign Out</button>
+          </form>
+          {{else}}
+          <a href="/authentication/sign-in">Sign In</a>
+          <a href="/authentication/sign-up">Sign Up</a>
+          {{/if}}
+       
     </nav>
+
+   
+    
 
 <header class="d-flex justify-content-start header">
   {{!-- <img class="bg-img p-5" src="" alt=""> --}}
 
   <div class="container">
-     <!--ROW-->
+    <!--ROW-->
     <div class="row">
-      <div class="col-md-7 col-sm-12"><!--COL-->
-        
+      <!--COL-->
+      <div class="col-md-7 col-sm-12">
+        {{#if user}}
 
-          <h1 class="mt-5"><span class="master">Master</span></h1>
-          <h2><span class="lara">Lara</span></h2>
-          
-          
+             {{> description}}
 
-          
-          
-          {{!-- <hr class="my-4"> --}}
+          <form class="main-search" action="/recipe/search/">
+            <label for="item" class="">Insert here every ingredient you have separated by spaces:</label>
+            <input type="text" id="item" name="item" placeholder="IE: carrot onion garlic cheese banana">
 
-      <!--INPUT - IF LOGIN -->
-      {{#if user}}
-
-        <form class="main-search" action="/recipe/search/">
-          <label for="item" class="">Insert here every ingredient you have separated by spaces:</label>
-          <input type="text" id="item" name="item" placeholder="IE: carrot onion garlic cheese banana">
-
-          <button class="btn btn-primary btn-lg">Search</button>
-        </form>
+            <button class="btn btn-primary btn-lg">Search</button>
+          </form>
       
-      {{else}}
+        {{else}}
 
-        {{> description}}
+          {{> description}}
         
-      </div>
-      {{/if}}
+        {{/if}}
 
-      </div><!--/COL-->
-    </div><!--/ROW-->
-  </div><!--/container-->
- 
+      </div><!--COL-->
+
+      <div class="col-md-5 col-sm-12">
+        <img class="plateHome" src="/images/Home/plate.png">
+      </div>
+
+    </div><!--ROW-->
+  </div>
+
   
 </header>
 

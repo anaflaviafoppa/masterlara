@@ -64,8 +64,8 @@ nav {
     margin-right: 1.5em;
     margin-bottom: 0;
     font-family: 'Poppins', ;
-    color:$colortextHome;
-    font-weight: 700;
+    color:white;
+    font-weight: 300;
     &:hover {
       text-decoration: none;
       color: $primary;
@@ -81,19 +81,18 @@ nav {
 }
 
 .home-nav {
-  color: $green;
+  color: white;
 }
 
 .header {
   position: relative;
   
   //Background characters
-  background-image: url('/images/Home/fresh-vegetables-home.jpg');
-  background-position: center;
+  background-image: url('/images/Home/fundo1.png');
+  background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
-  border-left: 35px solid white;
-  border-right: 35px solid white;
+  background-color:#f0523d;
   color:black;
   //height: 750px;
   z-index: 5;
@@ -140,8 +139,19 @@ nav {
   }
 
   .description{
-    padding-bottom: 50px;
+    padding-bottom: 100px;
+    font-family: 'Poppins', ;
+    
+
+    :first-child{
+      color:#3d201c;
+      font-size: 42px;
+    }
   }
+}
+
+.plateHome{
+  z-index: -2;
 }
 
 img {
