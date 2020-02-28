@@ -17,6 +17,7 @@ const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const hbs = require('hbs');
 
+
 //NODEMAILER - send a welcome message:
 const nodemailer = require('nodemailer');
 

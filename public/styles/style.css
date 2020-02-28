@@ -30,6 +30,49 @@ li {
   color: #4b4944;
   font-family: "Muli"; }
 
+.bodyHome {
+  background-image: url("/images/Home/fundo2.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f0523d; }
+
+@media (min-width: 964px) {
+  .bodyHome {
+    overflow: hidden; } }
+
+@media (max-width: 767px) {
+  .bodyHome {
+    background-image: url("/images/Home/fundoresposivo.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f0523d; } }
+
+#navbarHome {
+  display: flex;
+  padding: 0.7em;
+  align-items: center;
+  color: white; }
+  #navbarHome a,
+  #navbarHome button {
+    padding: 1em 0;
+    border: 0;
+    margin-right: 1.5em;
+    margin-bottom: 0;
+    font-family: "Poppins";
+    color: white;
+    font-weight: 300; }
+    #navbarHome a:hover,
+    #navbarHome button:hover {
+      text-decoration: none;
+      color: #a442bc; }
+  #navbarHome img {
+    width: 50px;
+    margin-right: auto; }
+  #navbarHome:not(.home-nav) {
+    background-color: rgba(0, 0, 0, 0); }
+
 nav {
   display: flex;
   padding: 0.7em;
@@ -52,15 +95,18 @@ nav {
     width: 50px;
     margin-right: auto; }
   nav:not(.home-nav) {
+<<<<<<< HEAD
     background-color: #3d1f1c; }
+=======
+    background-color: rgba(0, 0, 0, 0); }
+
+.home-nav {
+  color: white; }
+>>>>>>> 4849dd04a2f58c4534d96cdd4c9956ef5ec54a9f
 
 .header {
   position: relative;
-  background-image: url("/images/Home/fundo1.png");
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #f0523d;
+  padding-top: 100px;
   color: black;
   z-index: 5; }
   .header h1 {
@@ -76,6 +122,7 @@ nav {
       margin-bottom: 0.1rem;
       font-family: 'Poppins';
       color: black; }
+<<<<<<< HEAD
   .header .master {
     font-size: 180px;
     font-family: 'Poppins';
@@ -92,12 +139,43 @@ nav {
   .header .description {
     padding-bottom: 100px;
     font-family: 'Poppins'; }
+=======
+  .header .description {
+    padding-bottom: 80px;
+    font-family: "Poppins"; }
+>>>>>>> 4849dd04a2f58c4534d96cdd4c9956ef5ec54a9f
     .header .description :first-child {
       color: #3d201c;
-      font-size: 42px; }
+      font-size: 42px;
+      line-height: normal;
+      font-weight: 400; }
+    .header .description :last-child {
+      width: 70%;
+      padding-top: 10px;
+      color: white;
+      font-size: 18px; }
 
+<<<<<<< HEAD
 .plateHome {
   z-index: -2; }
+=======
+@media (max-width: 767px) {
+  .header {
+    padding-top: 80px; }
+    .header .description {
+      padding-bottom: 80px;
+      font-family: "Poppins"; }
+      .header .description :first-child {
+        color: #3d201c;
+        font-size: 35px;
+        line-height: normal;
+        font-weight: 400; }
+      .header .description :last-child {
+        width: 70%;
+        padding-top: 10px;
+        color: white;
+        font-size: 15px; } }
+>>>>>>> 4849dd04a2f58c4534d96cdd4c9956ef5ec54a9f
 
 form {
   display: flex;
@@ -105,9 +183,16 @@ form {
 
 input {
   opacity: 0.9;
+<<<<<<< HEAD
   background-color: white;
   color: black;
   border: 1px solid #dbdbda; }
+=======
+  border-radius: 3px;
+  border: solid 1px #dfdfdf;
+  background-color: white;
+  color: black; }
+>>>>>>> 4849dd04a2f58c4534d96cdd4c9956ef5ec54a9f
 
 input,
 textarea,
@@ -131,7 +216,54 @@ button,
     textarea:not(input):hover:not(.imageLikeSingle),
     button:not(input):hover:not(.imageLikeSingle),
     .btn:not(input):hover:not(.imageLikeSingle) {
+<<<<<<< HEAD
       background-color: #bb483b; }
+=======
+      border: #ff4a73; }
+>>>>>>> 4849dd04a2f58c4534d96cdd4c9956ef5ec54a9f
+
+.signout button {
+  color: white;
+  font-weight: 300;
+  line-height: 30px;
+  /* <- changed this */
+  box-sizing: border-box; }
+
+@media (max-width: 767px) {
+  .signout button {
+    color: white;
+    text-align: left;
+    font-weight: 300;
+    line-height: 2px;
+    /* <- changed this */
+    box-sizing: border-box; } }
+
+.formHome p {
+  padding-bottom: 30px; }
+
+.formHome button {
+  background-color: #3d201c;
+  color: white;
+  height: 50px;
+  border: 1px solid #3d201c;
+  vertical-align: center;
+  width: 40%;
+  line-height: 20px;
+  /* <- changed this */
+  box-sizing: border-box; }
+
+.formHome button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #3d201c; }
+
+.formHome input {
+  height: 50px; }
+
+@media (max-width: 767px) {
+  .btn-search {
+    color: red;
+    line-height: 15px;
+    /* <- changed this */ } }
 
 .delete {
   background-color: darkred;
