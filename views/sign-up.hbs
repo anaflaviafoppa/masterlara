@@ -1,15 +1,21 @@
 <div class="container px-5 pt-5">
-<form action="/authentication/sign-up" method="POST">
-  <label for="input-name">Name</label>
+
+<div>
+  <a href="javascript:history.back()"><strong><   Back</strong></a>
+</div>
+
+<form action="/authentication/sign-up" method="POST" class="mx-auto mt-5">
+<h2 class="mb-5 align-self-start">Create your account</h2>
+  <label class="align-self-start" for="input-name">Name</label>
   <input type="text" id="input-name" name="name" placeholder="Your Name" />
-  <label for="input-email">Email</label>
+  <label class="align-self-start" for="input-email">Email</label>
   <input type="email" id="input-email" name="email" placeholder="Your Email" />
-  <label for="input-password">Password</label>
+  <label class="align-self-start" for="input-password">Password</label>
   <input type="password" name="password" id="input-password" placeholder="A Strong Password" />
   {{!-- <label for="input-picture">Picture</label>
   <input type="file" accept="image/*" id="input-picture" name="picture"> --}}
 
-  <button>Sign Up</button>
+  <button class="align-self-end">Sign Up</button>
 </form>
-<a href="/authentication/github">Sign Up with GitHub</a>
+{{!-- <a href="/authentication/github">Sign Up with GitHub</a> --}}
 </div>

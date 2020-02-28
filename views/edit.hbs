@@ -1,18 +1,23 @@
-<div class="container px-5">
+<div class="container px-5 pt-5">
 
+<div>
+  <a href="javascript:history.back()"><strong><   Back</strong></a>
+</div>
 
-
-<form action="/{{user._id}}/edit" method="POST" >
-  <label for="name">Name</label>
+<form action="/{{user._id}}/edit" method="POST" class="mx-auto mt-5">
+  <label class="align-self-start" for="name">Name</label>
   <input type="text" id="name" name="name" value="{{user.name}}"/>
-  <label for="email">Email</label>
+  <label class="align-self-start" for="email">Email</label>
   <input type="email" id="email" name="email" value="{{user.email}}"/>
   {{!-- <label for="input-picture">Picture</label>
   <input type="file" accept="image/*" id="input-picture" name="picture"> --}}
 
-  <button>Save changes</button>
+  <button class="align-self-end">Save changes</button>
 </form>
 
-<a class="btn" href="/{{user._id}}/edit-picture" style="width: 100%;">Edit picture</a><br>
-<form action="/{{user._id}}/delete" method="POST"><button class="btn delete">Delete your account</button></form>
+<div class="mx-auto d-flex flex-column" style="max-width: 560px;">
+<a class="btn align-self-end" href="/{{user._id}}/edit-picture" >Edit picture</a><br>
+<form action="/{{user._id}}/delete" method="POST" class="align-self-end"><button class="btn delete ">Delete your account</button></form>
+</div>
+
  </div>

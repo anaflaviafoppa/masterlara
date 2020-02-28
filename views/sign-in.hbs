@@ -1,10 +1,16 @@
 <div class="container px-5 pt-5">
-<form action="/authentication/sign-in" method="POST">
-  <label for="input-email">Email</label>
-  <input type="email" id="input-email" name="email" placeholder="Your Email" />
-  <label for="input-password">Password</label>
-  <input type="password" name="password" id="input-password" placeholder="A Strong Password" />
-  <button>Sign In</button>
+<div>
+  <a href="javascript:history.back()"><strong><   Back</strong></a>
+</div>
+
+
+<form action="/authentication/sign-in" method="POST" class="mx-auto mt-5">
+<h2 class="mb-5 align-self-start">Log into your account</h2>
+  <label class="align-self-start" for="input-email">Email</label>
+  <input class="mb-5" type="email" id="input-email" name="email" placeholder="Your Email" />
+  <label class="align-self-start" for="input-password">Password</label>
+  <input class="mb-5" type="password" name="password" id="input-password" placeholder="A Strong Password" />
+  <button class="align-self-end">Sign In</button>
 </form>
-<a href="/authentication/github">Sign In with GitHub</a>
+{{!-- <a href="/authentication/github">Sign In with GitHub</a> --}}
 </div>
