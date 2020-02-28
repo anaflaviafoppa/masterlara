@@ -20,14 +20,20 @@ router.get('/search', routeGuard, (req, res, next) => {
     health: req.query.health
   };
 
+  
+
   let ingredientsArray = params.q.split(' ');
+  let userList;
 
   const id = req.user._id;
 
   User.findById(id)
     .then(user => {
+
       user.recipeSearch = ingredientsArray;
+      userList = user;
       user.save();
+      console.log(userList);
     })
     .then(() => {
       let recipes;
@@ -81,7 +87,7 @@ router.get('/search', routeGuard, (req, res, next) => {
         });
 
         //Renderizar as informações
-        res.render('recipe/search', { recipes });
+        res.render('recipe/search', { recipes, userList });
       });
     })
     .catch(error => {
@@ -90,9 +96,7 @@ router.get('/search', routeGuard, (req, res, next) => {
 });
 
 //GET - Recipe Book
-/*router.get('/:id/recipe-book', (req,res,next) =>{
-  res.render('recipe/recipebook');
-});*/
+
 
 router.get('/:id/recipe-book', (req, res, next) => {
   const id = req.params.id;

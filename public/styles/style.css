@@ -350,14 +350,26 @@ h4.grey {
   width: 100%;
   height: 800px;
   background-color: #eeece5;
-  background-image: url("/images/error-page.jpg");
+  background-image: url("/images/Home/fundoresposivo.png");
   background-color: #4b4944;
   background-blend-mode: multiply;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
+  .error-page .error-msg p {
+    color: white;
+    font-size: 42px;
+    line-height: normal;
+    font-weight: 400; }
+  .error-page .error-image {
+    width: 300px;
+    height: auto; }
 
-.error-msg {
-  color: white; }
+.btnTag {
+  background-color: #878683;
+  margin-left: 10px;
+  height: 10px;
+  line-height: 5px;
+  /* <- changed this */ }
 
 /*# sourceMappingURL=style.css.map */
