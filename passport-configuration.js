@@ -70,7 +70,7 @@ passport.use(
             to: user.email,
             subject:'Welcome to Master Lara!',
             //text: 'Hello World!'
-            html:"<img style='width:200px; ' src='https://res.cloudinary.com/ddz8awd1y/image/upload/v1582219129/profileImage/fykbpstjwd2clqjbwbyl.jpg'>"
+            html:"<a url='https://master-lara.herokuapp.com/' ><img  src='https://res.cloudinary.com/ddz8awd1y/image/upload/v1582894691/welcome%20email/welcome_poocbk.png'></a>"
           });
         })
         .then(() => {

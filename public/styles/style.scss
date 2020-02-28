@@ -18,19 +18,11 @@ $primary: #a442bc;
 $orange: #ffa31d;
 // $yellow: #f9d335;
 $green: #44c7b6;
-<<<<<<<head// $blue: #3193f3;
-=======
 $blue: #3193f3;
 $colortextHome: #565656;
 $layout-breakpoint-small: 767px;
 $layout-breakpoint-big: 964px;
->>>>>>>4849dd04a2f58c4534d96cdd4c9956ef5ec54a9f * {
-  &,
-  &:before,
-  &:after {
-    box-sizing: border-box;
-  }
-}
+ 
 
 body {
   padding: 0;
@@ -39,6 +31,7 @@ body {
   font-family: $font-sans;
   line-height: 2;
   background-color: $light;
+  box-sizing: border-box;
 }
 
 a {
