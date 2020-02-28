@@ -10,7 +10,8 @@ body {
   font-family: sans-serif;
   font-family: "Montserrat", sans-serif;
   line-height: 2;
-  background-color: #fbfbf6; }
+  background-color: #fbfbf6;
+  box-sizing: border-box; }
 
 a {
   color: #bb483b;
@@ -54,7 +55,33 @@ nav {
   align-items: center;
   color: white; }
   #navbarHome a,
+<<<<<<< HEAD
   #navbarHome button,
+=======
+  #navbarHome button {
+    padding: 1em 0;
+    border: 0;
+    margin-right: 1.5em;
+    margin-bottom: 0;
+    font-family: 'Poppins';
+    color: white;
+    font-weight: 300; }
+    #navbarHome a:hover,
+    #navbarHome button:hover {
+      text-decoration: none;
+      color: #a442bc; }
+  #navbarHome img {
+    width: 50px;
+    margin-right: auto; }
+  #navbarHome:not(.home-nav) {
+    background-color: rgba(0, 0, 0, 0); }
+
+nav {
+  display: flex;
+  padding: 0.7em;
+  align-items: center;
+  color: #fbfbf6; }
+>>>>>>> 557563c6b9d70516e9ce6844d8568bc902bf8676
   nav a,
   nav button {
     padding: 1em 0;
@@ -76,12 +103,17 @@ nav {
   nav img {
     width: 50px;
     margin-right: auto; }
+<<<<<<< HEAD
   #navbarHome:not(#navbarHome),
   nav:not(#navbarHome) {
     background-image: url("/images/3199.jpg");
     background-position: center;
     background-color: #3d1f1c;
     background-blend-mode: multiply; }
+=======
+  nav:not(.home-nav) {
+    background-color: #3d1f1c; }
+>>>>>>> 557563c6b9d70516e9ce6844d8568bc902bf8676
 
 .home-nav {
   color: white; }
@@ -134,6 +166,13 @@ nav {
         padding-top: 10px;
         color: white;
         font-size: 15px; } }
+<<<<<<< HEAD
+=======
+
+img {
+  width: 100%;
+  max-width: 100%; }
+>>>>>>> 557563c6b9d70516e9ce6844d8568bc902bf8676
 
 img {
   width: 100%;
@@ -150,16 +189,21 @@ input {
   border-radius: 3px;
   border: solid 1px #dfdfdf;
   background-color: white;
+<<<<<<< HEAD
   color: black;
   padding: 1em;
   border-radius: 3px;
   margin-bottom: 1em;
   width: 100%; }
+=======
+  color: black; }
+>>>>>>> 557563c6b9d70516e9ce6844d8568bc902bf8676
 
 textarea,
 button,
 .btn {
   border-radius: 3px;
+<<<<<<< HEAD
   font: inherit;
   padding: 1em;
   border: 0;
@@ -177,6 +221,69 @@ button,
   .btn:hover:not(.imageLikeSingle):not(.signout) {
     background-color: #bb483b;
     border: #ef5241; }
+=======
+  margin-bottom: 1em;
+  font: inherit; }
+  input:not(input),
+  textarea:not(input),
+  button:not(input),
+  .btn:not(input) {
+    border: 0;
+    width: 210px;
+    background-color: #ef5241;
+    transition: background-color 300ms ease-in;
+    font-weight: bold;
+    color: #fbfbf6; }
+    input:not(input):hover:not(.imageLikeSingle),
+    textarea:not(input):hover:not(.imageLikeSingle),
+    button:not(input):hover:not(.imageLikeSingle),
+    .btn:not(input):hover:not(.imageLikeSingle) {
+      background-color: #bb483b;
+      border: #ef5241; }
+
+.signout button {
+  color: white;
+  font-weight: 300;
+  line-height: 30px;
+  /* <- changed this */
+  box-sizing: border-box; }
+
+@media (max-width: 767px) {
+  .signout button {
+    color: white;
+    text-align: left;
+    font-weight: 300;
+    line-height: 2px;
+    /* <- changed this */
+    box-sizing: border-box; } }
+
+.formHome p {
+  padding-bottom: 30px; }
+
+.formHome button {
+  background-color: #3d201c;
+  color: white;
+  height: 50px;
+  border: 1px solid #3d201c;
+  vertical-align: center;
+  width: 40%;
+  line-height: 20px;
+  /* <- changed this */
+  box-sizing: border-box; }
+
+.formHome button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #3d201c; }
+
+.formHome input {
+  height: 50px; }
+
+@media (max-width: 767px) {
+  .btn-search {
+    color: red;
+    line-height: 15px;
+    /* <- changed this */ } }
+>>>>>>> 557563c6b9d70516e9ce6844d8568bc902bf8676
 
 .delete {
   background-color: darkred;
