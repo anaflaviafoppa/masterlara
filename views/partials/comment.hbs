@@ -1,9 +1,9 @@
 
-<div class="col">
-  <form action="/recipe/{{ getID uri }}/comment" method="POST">
+<div class="col new-comment">
+  <form action="/recipe/{{ getID uri }}/comment" method="POST" class="d-flex flex-column">
     {{!-- <label for="content">Add comment:</label> --}}
     <input type="text" name="content" id="content" placeholder="Insert comment here..." style="height: 120px;">
-    <button>Comment</button>
+    <button class="self-align-end" >Comment</button>
   </form>
 </div>
 

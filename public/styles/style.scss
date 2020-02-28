@@ -1,17 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap');
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Raleway:400,500|Montserrat:400,500");
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i");
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Raleway:400,500|Montserrat:400,500');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap');
 
 $font-sans: 'Montserrat', sans-serif;
-$grey: hsla(0, 0, 75%, 0.5);
-$primary: #a442bc;
-$pink: #ff4a73;
-$orange: #ffa31d;
-$gray: #222222a1;
-$yellow: #f9d335;
-$green: #44c7b6;
-$blue: #3193f3;
+$font-serif: 'Playfair Display';
+$font-sans2: 'Muli';
+$light-grey: #878683;
 $colortextHome: #565656;
+$dark: #3d1f1c;
+$light: #fbfbf6;
+$pink: #ef5241;
+$dark-pink: #bb483b;
+$gray: #4b4944;
+
+$primary: #a442bc;
+$orange: #ffa31d;
+// $yellow: #f9d335;
+$green: #44c7b6;
+// $blue: #3193f3;
 
 * {
   &,
@@ -27,44 +34,46 @@ body {
   font-family: sans-serif;
   font-family: $font-sans;
   line-height: 2;
+  background-color: $light;
 }
 
 a {
-  color: inherit;
-  &:not(full-recipe) {
-    text-decoration: none;
-  }
+  color: $dark-pink;
+  font-family: $font-sans2;
+  text-decoration: none;
 }
 
-h2,
-h1 {
-  color: $pink;
-  margin-bottom: 0;
-}
-
+h1,
 h5,
-h4 {
-  color: $primary;
+h4,
+h2 {
+  font-family: $font-serif;
 }
+
+// h5,
+// h4 {
+//   color: $primary;
+// }
 
 p,
 li {
   color: $gray;
+  font-family: $font-sans2;
 }
 
 nav {
   display: flex;
   padding: 0.7em;
   align-items: center;
-  color: white;
+  color: $light;
   a,
   button {
     padding: 1em 0;
     border: 0;
     margin-right: 1.5em;
     margin-bottom: 0;
-    font-family: 'Poppins', ;
-    color:white;
+    font-family: 'Poppins';
+    color: $light;
     font-weight: 300;
     &:hover {
       text-decoration: none;
@@ -76,87 +85,73 @@ nav {
     margin-right: auto;
   }
   &:not(.home-nav) {
-    background-color: $pink;
+    background-color: $dark;
   }
-}
-
-.home-nav {
-  color: white;
 }
 
 .header {
   position: relative;
-  
+
   //Background characters
   background-image: url('/images/Home/fundo1.png');
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color:#f0523d;
-  color:black;
+  background-color: #f0523d;
+  color: black;
   //height: 750px;
   z-index: 5;
   //overflow: hidden;
 
-  h1{
+  h1 {
     padding-top: 100px;
     margin-bottom: 0.1px;
   }
 
-  h2{
+  h2 {
     padding-bottom: 30px;
   }
   > div {
-    
     z-index: 7;
     p {
       font-size: 15px;
       font-weight: lighter;
       margin-bottom: 0.1rem;
-      font-family: 'Poppins', ;
-      color:black;
-
+      font-family: 'Poppins';
+      color: black;
     }
   }
 
-  
-  .master{
+  .master {
     font-size: 180px;
-    font-family: 'Poppins', ;
+    font-family: 'Poppins';
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1px;
     margin-bottom: 0.01rem;
-    color:black;
+    color: black;
   }
 
-  .lara{
+  .lara {
     text-transform: uppercase;
     font-size: 60px;
     letter-spacing: 40px;
-    color:black;
-    
+    color: black;
   }
 
-  .description{
+  .description {
     padding-bottom: 100px;
-    font-family: 'Poppins', ;
-    
+    font-family: 'Poppins';
 
-    :first-child{
-      color:#3d201c;
+    :first-child {
+      color: #3d201c;
       font-size: 42px;
     }
   }
 }
 
-.plateHome{
+.plateHome {
   z-index: -2;
-}
-
-img {
-  width: 100%;
-  max-width: 100%;
 }
 
 form {
@@ -166,10 +161,9 @@ form {
 
 input {
   opacity: 0.9;
-  border-radius: 3px;
-  border: solid 1px #dfdfdf;
-  background-color: rgba(197, 197, 197, 0.02);
+  background-color: white;
   color: black;
+  border: 1px solid #dbdbda;
 }
 
 input,
@@ -177,19 +171,18 @@ textarea,
 button,
 .btn {
   padding: 1em;
-  border: 1px solid $grey;
   border-radius: 3px;
   margin-bottom: 1em;
   font: inherit;
-  color: inherit;
   &:not(input) {
-    background-color: transparent;
+    border: 0;
+    width: 210px;
+    background-color: $pink;
     transition: background-color 300ms ease-in;
     font-weight: bold;
-    color: $gray;
+    color: $light;
     &:hover:not(.imageLikeSingle) {
-      background-color: $pink;
-      border: $pink;
+      background-color: $dark-pink;
     }
   }
 }
@@ -214,6 +207,7 @@ textarea {
   height: 2.75em;
   padding: 0;
   border: 0;
+  background-color: transparent;
   img {
     width: auto;
     height: 2.25em;
@@ -221,56 +215,114 @@ textarea {
   }
 }
 
+// Subtitle in the Pages with list of recipes = result and recipe book
+h4.grey {
+  color: $light-grey;
+  font-family: $font-sans2;
+}
+
+// Recipe cards
 .card {
   position: relative;
   overflow: hidden;
+  background-color: $light;
   img {
+    width: 350px;
     transition: transform 300ms ease-in;
     &:hover {
       transform: scale(1.1);
     }
   }
-  .btn {
-    margin-bottom: 0;
-    width: 100%;
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    a {
+      color: $pink;
+      font-family: $font-sans2;
+      font-size: 18px;
+      font-weight: bold;
+      border: 0;
+      padding: 0;
+      margin-bottom: 0;
+    }
   }
   .percentage {
     position: absolute;
-    background-color: $primary;
-    color: white;
+    background-color: $dark-pink;
+    color: $light;
     padding: 0.25em 0.5em;
     margin-top: 0.5em;
   }
 }
 
-.missing-ingredients {
-  color: $pink;
+// Recipe page > single
+
+.recipe-top {
+  img.rounded {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
-.my-ingredients {
-  color: $green;
-}
+// .missing-ingredients {
+//   color: $pink;
+// }
+
+// .my-ingredients {
+//   color: $green;
+// }
 
 .ingredients-list {
-  list-style-type: '- ';
-  padding-left: 10px;
+  list-style: none;
+  padding-left: 0;
+  li:before {
+    content: '✓      ';
+  }
+  li.missing-ingredients:before {
+    color: $pink;
+  }
+  li.my-ingredients:before {
+    color: $green;
+  }
 }
 
 #whatsapp-share-btn {
   background-color: #25d366;
-  color: white;
+  color: $light;
   border-radius: 3px;
   padding: 10px;
   transition: all 300ms ease-in;
+  width: 280px;
+  text-align: center;
+  margin: 10px;
   &:hover {
-    background-color: white;
-    border: #25d366;
+    background-color: $light;
+    border: 1px solid #25d366;
     color: #25d366;
+    text-decoration: none;
   }
   .whatsapp-icon {
     width: 40px;
     padding-right: 10px;
   }
+}
+
+.full-recipe {
+  width: 280px;
+  border: 1px solid $dark-pink;
+  padding: 10px;
+  transition: background-color 300ms ease-in;
+  text-align: center;
+  &:hover {
+    background-color: $dark-pink;
+    color: $light;
+    text-decoration: none;
+  }
+}
+
+.img-circle {
+  max-width: 170px;
 }
 
 .error-page {

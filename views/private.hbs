@@ -2,12 +2,12 @@
 <div class="container pt-5">
    <div class="row">
       <div class="media col-12">
-         <img src="{{user.picture}}" class="align-self-start mr-3 col-lg-5 col-12" alt="profile image">
-         <div class="media-body col-lg-5 col-sm-12 d-flex flex-column" style="height: 100%;">
-            <h4 class="mt-0">{{user.name}}</h4>
-            <p><strong>Email</strong>: {{user.email}}</p>
+         <img src="{{user.picture}}" class="img-circle align-self-center mr-3 col-lg-3 col-12" alt="profile image">
+         <div class="media-body col-lg-9 col-sm-12 d-flex flex-column ml-auto" style="height: 100%;">
+            <h1 class="mt-0">{{user.name}}</h1>
+            <h4 class="grey">{{user.email}}</h4>
             <a class="btn" href="recipe/{{user._id}}/recipe-book">My Recipe Book</a>
-            <a class="btn justify-self-end mt-auto" href="/{{user._id}}/edit" style="width: 100%;">Edit profile</a>
+            <a class="justify-self-end mt-auto" href="/{{user._id}}/edit" style="width: 100%;">Edit profile</a>
          </div>
       </div>
    </div>

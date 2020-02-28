@@ -1,6 +1,8 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Raleway:400,500|Montserrat:400,500");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i");
+@import url("https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap");
 *, *:before, *:after {
   box-sizing: border-box; }
 
@@ -9,39 +11,38 @@ body {
   margin: 0;
   font-family: sans-serif;
   font-family: "Montserrat", sans-serif;
-  line-height: 2; }
+  line-height: 2;
+  background-color: #fbfbf6; }
 
 a {
-  color: inherit; }
-  a:not(full-recipe) {
-    text-decoration: none; }
+  color: #bb483b;
+  font-family: "Muli";
+  text-decoration: none; }
 
-h2,
-h1 {
-  color: #ff4a73;
-  margin-bottom: 0; }
-
+h1,
 h5,
-h4 {
-  color: #a442bc; }
+h4,
+h2 {
+  font-family: "Playfair Display"; }
 
 p,
 li {
-  color: #222222a1; }
+  color: #4b4944;
+  font-family: "Muli"; }
 
 nav {
   display: flex;
   padding: 0.7em;
   align-items: center;
-  color: white; }
+  color: #fbfbf6; }
   nav a,
   nav button {
     padding: 1em 0;
     border: 0;
     margin-right: 1.5em;
     margin-bottom: 0;
-    font-family: "Poppins";
-    color: white;
+    font-family: 'Poppins';
+    color: #fbfbf6;
     font-weight: 300; }
     nav a:hover,
     nav button:hover {
@@ -51,10 +52,7 @@ nav {
     width: 50px;
     margin-right: auto; }
   nav:not(.home-nav) {
-    background-color: #ff4a73; }
-
-.home-nav {
-  color: white; }
+    background-color: #3d1f1c; }
 
 .header {
   position: relative;
@@ -76,11 +74,11 @@ nav {
       font-size: 15px;
       font-weight: lighter;
       margin-bottom: 0.1rem;
-      font-family: "Poppins";
+      font-family: 'Poppins';
       color: black; }
   .header .master {
     font-size: 180px;
-    font-family: "Poppins";
+    font-family: 'Poppins';
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1px;
@@ -93,19 +91,13 @@ nav {
     color: black; }
   .header .description {
     padding-bottom: 100px;
-    font-family: "Poppins"; }
+    font-family: 'Poppins'; }
     .header .description :first-child {
       color: #3d201c;
       font-size: 42px; }
 
 .plateHome {
-  height: auto;
-  scale: 1.5;
   z-index: -2; }
-
-img {
-  width: 100%;
-  max-width: 100%; }
 
 form {
   display: flex;
@@ -113,35 +105,33 @@ form {
 
 input {
   opacity: 0.9;
-  border-radius: 3px;
-  border: solid 1px #dfdfdf;
-  background-color: rgba(197, 197, 197, 0.02);
-  color: black; }
+  background-color: white;
+  color: black;
+  border: 1px solid #dbdbda; }
 
 input,
 textarea,
 button,
 .btn {
   padding: 1em;
-  border: 1px solid rgba(191, 191, 191, 0.5);
   border-radius: 3px;
   margin-bottom: 1em;
-  font: inherit;
-  color: inherit; }
+  font: inherit; }
   input:not(input),
   textarea:not(input),
   button:not(input),
   .btn:not(input) {
-    background-color: transparent;
+    border: 0;
+    width: 210px;
+    background-color: #ef5241;
     transition: background-color 300ms ease-in;
     font-weight: bold;
-    color: #222222a1; }
+    color: #fbfbf6; }
     input:not(input):hover:not(.imageLikeSingle),
     textarea:not(input):hover:not(.imageLikeSingle),
     button:not(input):hover:not(.imageLikeSingle),
     .btn:not(input):hover:not(.imageLikeSingle) {
-      background-color: #ff4a73;
-      border: #ff4a73; }
+      background-color: #bb483b; }
 
 .delete {
   background-color: darkred;
@@ -160,59 +150,97 @@ textarea {
   width: auto;
   height: 2.75em;
   padding: 0;
-  border: 0; }
+  border: 0;
+  background-color: transparent; }
   .imageLikeSingle img {
     width: auto;
     height: 2.25em;
     margin: 0; }
 
+h4.grey {
+  color: #878683;
+  font-family: "Muli"; }
+
 .card {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #fbfbf6; }
   .card img {
+    width: 350px;
     transition: transform 300ms ease-in; }
     .card img:hover {
       transform: scale(1.1); }
-  .card .btn {
-    margin-bottom: 0;
-    width: 100%; }
+  .card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .card .card-body a {
+      color: #ef5241;
+      font-family: "Muli";
+      font-size: 18px;
+      font-weight: bold;
+      border: 0;
+      padding: 0;
+      margin-bottom: 0; }
   .card .percentage {
     position: absolute;
-    background-color: #a442bc;
-    color: white;
+    background-color: #bb483b;
+    color: #fbfbf6;
     padding: 0.25em 0.5em;
     margin-top: 0.5em; }
 
-.missing-ingredients {
-  color: #ff4a73; }
-
-.my-ingredients {
-  color: #44c7b6; }
+.recipe-top img.rounded {
+  width: 100%;
+  max-width: 100%; }
 
 .ingredients-list {
-  list-style-type: '- ';
-  padding-left: 10px; }
+  list-style: none;
+  padding-left: 0; }
+  .ingredients-list li:before {
+    content: '✓      '; }
+  .ingredients-list li.missing-ingredients:before {
+    color: #ef5241; }
+  .ingredients-list li.my-ingredients:before {
+    color: #44c7b6; }
 
 #whatsapp-share-btn {
   background-color: #25d366;
-  color: white;
+  color: #fbfbf6;
   border-radius: 3px;
   padding: 10px;
-  transition: all 300ms ease-in; }
+  transition: all 300ms ease-in;
+  width: 280px;
+  text-align: center;
+  margin: 10px; }
   #whatsapp-share-btn:hover {
-    background-color: white;
-    border: #25d366;
-    color: #25d366; }
+    background-color: #fbfbf6;
+    border: 1px solid #25d366;
+    color: #25d366;
+    text-decoration: none; }
   #whatsapp-share-btn .whatsapp-icon {
     width: 40px;
     padding-right: 10px; }
+
+.full-recipe {
+  width: 280px;
+  border: 1px solid #bb483b;
+  padding: 10px;
+  transition: background-color 300ms ease-in;
+  text-align: center; }
+  .full-recipe:hover {
+    background-color: #bb483b;
+    color: #fbfbf6;
+    text-decoration: none; }
+
+.img-circle {
+  max-width: 170px; }
 
 .error-page {
   width: 100%;
   height: 800px;
   background-color: #eeece5;
   background-image: url("/images/error-page.jpg");
-  background-color: #222222a1;
+  background-color: #4b4944;
   background-blend-mode: multiply;
   background-position: center;
   background-repeat: no-repeat;

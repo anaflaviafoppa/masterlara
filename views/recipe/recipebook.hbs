@@ -1,8 +1,8 @@
 
-<div class="container pt-5">
-  <h1>{{user.name}}'s Recipe Book</h1>
+<div class="container pt-5 px-0"> 
+  <h1 class="ml-3 mb-5">{{user.name}}'s Recipe Book</h1>
  
-  <div class="row d-flex justify-content-around">
+  <div class="row d-flex justify-content-between ml-3">
     {{#each user.favoriteRecipes}}
 
       {{>recipebookcard}}    

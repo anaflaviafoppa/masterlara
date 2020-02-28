@@ -1,5 +1,10 @@
 
-<section class="container pt-5">
+<section class="container-fluid pt-5 px-5 recipe-top">
+<div class="row pb-4 ml-2 font-weight-bold">
+<a href="javascript:history.back()"><   Back</a>
+
+</div>
+
   <div class="row">
     {{#with recipe}}
 
@@ -38,16 +43,20 @@
     </div><!--/COLUMN-->
 
      <!--FIRST COLUMN-->
-    <div class="col-md-6">
-      <h2>{{label}}</h2>
+    <div class="col-12 col-lg-6 mb-4">
+      <h1>{{label}}</h1>
 
       <!--DESCRIPTION-->
       <div class="row mb-5">
-        <div class="col-md">
+        <div class="col-md pr-0">
+          <p>Percentage: {{yield}} ARRRR</p>
+        </div>
+
+        <div class="col-md px-0">
           <p>Servings: {{yield}} people</p>
         </div>
 
-        <div class="col-md">
+        <div class="col-md px-0">
           <p>Calories: {{number calories}}kcal</p>
         </div>
       </div>
@@ -82,7 +91,7 @@
       </div><!--/INGREDIENTS ROW-->
       
       <div class="d-flex justify-content-between align-items-center pt-3">
-        <a href={{url}} target="_blank">Full Recipe ></a>
+        <a class="full-recipe" href={{url}} target="_blank">View Full Recipe</a>
         {{!-- <div class="whatsapp-button d-flex align-content-center"> --}} 
           
           <a href="https://api.whatsapp.com/send?text=Let's%20cook%20{{label}}%20together?%20I%20have%20almost%20everything,%20you%20just%20need%20to%20bring:{{#each ingredientLines}},%20{{this}}%20{{/each}}%20%0Dxoxo!" id="whatsapp-share-btn" rel="nofollow" target="_blank"><img class="whatsapp-icon align-self-center" src="https://image.flaticon.com/icons/svg/2111/2111728.svg" alt="whatsapp icon"> Invite a friend via WhatsApp</a>

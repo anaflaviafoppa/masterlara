@@ -1,11 +1,11 @@
 
-<div class="col-lg-3 col-md-5 col-12 d-flex justify-content-md-between justify-content-sm-around m-2 p-0">
-<div class="card border-0" style="width: 18rem;">
+<div class="col-lg-4 col-md-5 col-12 d-flex justify-content-md-between justify-content-sm-around p-0">
+<div class="card border-0">
   <img src="{{recipe.image}}" class="card-img-top rounded-bottom" alt="{{recipe.label}}">
   <p class="percentage rounded-right">{{ percentage }}%</p>
   <div class="card-body px-0 pt-4">
-    <h5 class="card-title pb-4">{{recipe.label}}</h5>
-    <a href="/recipe/{{ getID recipe.uri }}" class="btn btn-primary">View Recipe</a>
+    <h4 class="card-title pb-4">{{recipe.label}}</h4>
+    <a href="/recipe/{{ getID recipe.uri }}" >View Recipe</a>
   </div>
 </div>
 </div>
