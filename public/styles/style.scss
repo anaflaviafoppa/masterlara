@@ -250,7 +250,7 @@ button,
 .btn {
   border-radius: 3px;
   font: inherit;
-  &:not(.signout):not(.imageLikeSingle) {
+  &:not(.signout):not(.imageLikeSingle):not(.btn-search):not(.navbar-toggler) {
     margin-bottom: 1em;
     width: 210px;
   }
@@ -261,7 +261,7 @@ button,
   transition: background-color 300ms ease-in;
   font-weight: bold;
   color: $light;
-  &:hover:not(.imageLikeSingle):not(.signout) {
+  &:hover:not(.imageLikeSingle):not(.signout):not(.btn-search):not(.navbar-toggler) {
     background-color: $dark-pink;
     // background-color: $pink;
     border: $pink;
@@ -377,9 +377,9 @@ h4.grey {
     padding-bottom: 30px;
   }
 
-  button.btn-home {
+  button.btn-search {
     background-color: #3d201c;
-    color: white;
+    color: $light;
     height: 50px;
     border: 1px solid #3d201c;
     vertical-align: center;
@@ -388,7 +388,7 @@ h4.grey {
     box-sizing: border-box;
   }
 
-  button.btn-home:hover {
+  button.btn-search:hover {
     background-color: rgba(255, 255, 255, 0.5);
     color: #3d201c;
   }
@@ -400,12 +400,11 @@ h4.grey {
 
 @media (max-width: $layout-breakpoint-small) {
   .btn-search {
-    color: red;
-    line-height: 15px; /* <- changed this */
+    color: $light;
+    font-size: 12px;
+    line-height: 10px; /* <- changed this */
   }
 }
-
-
 
 .ingredients-list {
   list-style: none;
@@ -493,15 +492,13 @@ h4.grey {
   background-repeat: no-repeat;
   background-size: cover;
 
-  .error-msg{
-    p{
-      color:white;
+  .error-msg {
+    p {
+      color: white;
       font-size: 42px;
       line-height: normal;
       font-weight: 400;
     }
-
-    
   }
 
   .error-image {
@@ -510,15 +507,9 @@ h4.grey {
   }
 }
 
-
-.btnTag{
+.btnTag {
   background-color: $light-grey;
   margin-left: 10px;
   height: 10px;
   line-height: 5px; /* <- changed this */
 }
-
-
-
-
-

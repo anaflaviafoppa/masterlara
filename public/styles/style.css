@@ -168,14 +168,14 @@ button,
   transition: background-color 300ms ease-in;
   font-weight: bold;
   color: #fbfbf6; }
-  textarea:not(.signout):not(.imageLikeSingle),
-  button:not(.signout):not(.imageLikeSingle),
-  .btn:not(.signout):not(.imageLikeSingle) {
+  textarea:not(.signout):not(.imageLikeSingle):not(.btn-search):not(.navbar-toggler),
+  button:not(.signout):not(.imageLikeSingle):not(.btn-search):not(.navbar-toggler),
+  .btn:not(.signout):not(.imageLikeSingle):not(.btn-search):not(.navbar-toggler) {
     margin-bottom: 1em;
     width: 210px; }
-  textarea:hover:not(.imageLikeSingle):not(.signout),
-  button:hover:not(.imageLikeSingle):not(.signout),
-  .btn:hover:not(.imageLikeSingle):not(.signout) {
+  textarea:hover:not(.imageLikeSingle):not(.signout):not(.btn-search):not(.navbar-toggler),
+  button:hover:not(.imageLikeSingle):not(.signout):not(.btn-search):not(.navbar-toggler),
+  .btn:hover:not(.imageLikeSingle):not(.signout):not(.btn-search):not(.navbar-toggler) {
     background-color: #bb483b;
     border: #ef5241; }
 
@@ -262,9 +262,9 @@ h4.grey {
 .formHome p {
   padding-bottom: 30px; }
 
-.formHome button.btn-home {
+.formHome button.btn-search {
   background-color: #3d201c;
-  color: white;
+  color: #fbfbf6;
   height: 50px;
   border: 1px solid #3d201c;
   vertical-align: center;
@@ -273,7 +273,7 @@ h4.grey {
   /* <- changed this */
   box-sizing: border-box; }
 
-.formHome button.btn-home:hover {
+.formHome button.btn-search:hover {
   background-color: rgba(255, 255, 255, 0.5);
   color: #3d201c; }
 
@@ -282,8 +282,9 @@ h4.grey {
 
 @media (max-width: 767px) {
   .btn-search {
-    color: red;
-    line-height: 15px;
+    color: #fbfbf6;
+    font-size: 12px;
+    line-height: 10px;
     /* <- changed this */ } }
 
 .ingredients-list {
