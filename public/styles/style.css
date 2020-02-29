@@ -146,6 +146,7 @@ form:not(.formHome):not(.new-comment) {
   align-items: center;
   max-width: 560px; }
 
+textarea,
 input {
   opacity: 0.9;
   border-radius: 3px;
@@ -157,7 +158,6 @@ input {
   margin-bottom: 1em;
   width: 100%; }
 
-textarea,
 button,
 .btn {
   border-radius: 3px;
@@ -168,12 +168,10 @@ button,
   transition: background-color 300ms ease-in;
   font-weight: bold;
   color: #fbfbf6; }
-  textarea:not(.signout):not(.imageLikeSingle):not(.btn-search):not(.navbar-toggler),
   button:not(.signout):not(.imageLikeSingle):not(.btn-search):not(.navbar-toggler),
   .btn:not(.signout):not(.imageLikeSingle):not(.btn-search):not(.navbar-toggler) {
     margin-bottom: 1em;
     width: 210px; }
-  textarea:hover:not(.imageLikeSingle):not(.signout):not(.btn-search):not(.navbar-toggler),
   button:hover:not(.imageLikeSingle):not(.signout):not(.btn-search):not(.navbar-toggler),
   .btn:hover:not(.imageLikeSingle):not(.signout):not(.btn-search):not(.navbar-toggler) {
     background-color: #bb483b;
@@ -210,7 +208,8 @@ h4.grey {
 .card {
   position: relative;
   overflow: hidden;
-  background-color: #fbfbf6; }
+  background-color: #fbfbf6;
+  max-width: 350px; }
   .card img {
     width: 350px;
     transition: transform 300ms ease-in; }
@@ -268,10 +267,11 @@ h4.grey {
   height: 50px;
   border: 1px solid #3d201c;
   vertical-align: center;
-  width: 40%;
+  width: 35%;
   line-height: 20px;
   /* <- changed this */
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin-bottom: 1em; }
 
 .formHome button.btn-search:hover {
   background-color: rgba(255, 255, 255, 0.5);
@@ -303,9 +303,9 @@ h4.grey {
   border-radius: 3px;
   padding: 10px;
   transition: all 300ms ease-in;
-  width: 280px;
   text-align: center;
-  margin: 10px; }
+  margin-right: 5px;
+  margin-top: 15px; }
   #whatsapp-share-btn:hover {
     background-color: #fbfbf6;
     border: 1px solid #25d366;
@@ -316,7 +316,6 @@ h4.grey {
     padding-right: 10px; }
 
 .full-recipe {
-  width: 280px;
   border: 1px solid #bb483b;
   padding: 10px;
   transition: background-color 300ms ease-in;

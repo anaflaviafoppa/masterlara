@@ -2,7 +2,7 @@
 <div class="col new-comment">
   <form action="/recipe/{{ getID uri }}/comment" method="POST" class="d-flex flex-column new-comment">
     {{!-- <label for="content">Add comment:</label> --}}
-    <input type="text" name="content" id="content" placeholder="Insert comment here..." style="height: 120px;">
+    <textarea type="text" name="content" id="content" placeholder="Insert comment here..." style="height: 120px;"></textarea>
     <button class="self-align-start" >Comment</button>
   </form>
 </div>

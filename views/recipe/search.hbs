@@ -1,4 +1,9 @@
-<div class="d-flex justify-content-center align-items-center pt-5">
+<div class="recipe-search container pt-2 px-0">
+<div class="row py-4 ml-3 font-weight-bold">
+<a href="javascript:history.back()"><   Back</a>
+</div>
+
+<div class="d-flex justify-content-center align-items-center py-3">
   {{#each userList.recipeSearch}}
 
     <button type="button" class="btn btn-secondary btn-sm rounded-pill btnTag pl-3">{{this}}</button>
@@ -9,10 +14,9 @@
 
 
 
-<div class="recipe-search container pt-2 px-0">
   <h1 class="ml-3">Recipes that match your search</h1>
   <h4 class="grey mb-5 ml-3">The percentage on each recipe represent how much you already have to cook it</h4>
-  <div class="row d-flex justify-content-between ml-3">
+  <div class="row d-flex justify-content-between ml-0 ml-md-3">
 {{#each recipes}}
 
 {{>recipelist}}
