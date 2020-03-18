@@ -3,6 +3,7 @@
 const { Router } = require('express');
 const router = new Router();
 const routeGuard = require('./../middleware/route-guard');
+const deleteOwnCommentOnly = require('.././middleware/delete-own-comment-only.js');
 const Comment = require('./../models/comment');
 const User = require('./../models/user');
 
@@ -11,92 +12,11 @@ const RECIPE_API_KEY = process.env.RECIPE_API_KEY;
 
 const axios = require('axios');
 
-router.get('/search', routeGuard, (req, res, next) => {
-  //Params to request the API
-  const params = {
-    q: req.query.item,
-    app_id: RECIPE_API_ID,
-    app_key: RECIPE_API_KEY,
-    health: req.query.health
-  };
+const recipeSearchContoller = require('./../controllers/recipes/search');
 
-  
-
-  let ingredientsArray = params.q.split(' ');
-  let userList;
-
-  const id = req.user._id;
-
-  User.findById(id)
-    .then(user => {
-
-      user.recipeSearch = ingredientsArray;
-      userList = user;
-      user.save();
-      console.log(userList);
-    })
-    .then(() => {
-      let recipes;
-
-      // Activate API > send request
-      const Recipe = axios.get(`https://api.edamam.com/search`, { params });
-
-      Recipe.then(output => {
-        recipes = output.data.hits;
-        //SPLIT BY SPACE:
-
-        //VERIFICAR a quantidade de ingredientes que temos/ingredientes
-        for (let recipe of recipes) {
-          //otimizar por array a busca:
-          ingredientsArray = params.q.split(' ');
-
-          //quantos ingredientes da receita são iguais ao que possuimos na geladeira:
-          let counter = 0;
-
-          //array de Ingredientes do API:
-          const recipeArray = recipe.recipe.ingredientLines;
-          recipe.recipe.ingredientsStorage = [];
-
-          for (let i = 0; i < recipeArray.length; i++) {
-            for (let j = 0; j < ingredientsArray.length; j++) {
-              const incluido = recipeArray[i].toLowerCase().includes(ingredientsArray[j]);
-
-              if (incluido) {
-                counter++;
-                ingredientsArray.splice(j, 1);
-
-                recipe.recipe.ingredientsStorage.push(recipeArray[i]);
-              }
-            }
-
-            //criar uma KEY com o valor da porcentagem:
-            recipe.percentage = ((counter / recipeArray.length) * 100).toFixed(0);
-          }
-        }
-
-        //Ordenar as recipes por porcentagem:
-        recipes.sort((a, b) => {
-          if (parseInt(a.percentage) < parseInt(b.percentage)) {
-            return 1;
-          }
-          if (parseInt(a.percentage) > parseInt(b.percentage)) {
-            return -1;
-          }
-          // a must be equal to b
-          return 0;
-        });
-
-        //Renderizar as informações
-        res.render('recipe/search', { recipes, userList });
-      });
-    })
-    .catch(error => {
-      next(error);
-    });
-});
+router.get('/search', routeGuard, recipeSearchContoller);
 
 //GET - Recipe Book
-
 
 router.get('/:id/recipe-book', (req, res, next) => {
   const id = req.params.id;
@@ -110,7 +30,7 @@ router.get('/:id/recipe-book', (req, res, next) => {
 });
 
 // Router for the SINGLE view. It displays the recipe API info and renders the comments related to that recipe
-router.get('/:id', routeGuard, (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   const { id } = req.params;
 
   const recipeSearch = req.user.recipeSearch;
@@ -163,9 +83,11 @@ router.get('/:id', routeGuard, (req, res, next) => {
       comments = docs;
       // pass to view if the user is the author of the comment, then he will see the DELETE COMMENT button
 
-      for (let comment of docs) {
-        comment.owner = comment.userId._id.toString() === req.user._id.toString();
-      }
+      deleteOwnCommentOnly(docs, req.user._id.toString());
+
+      // for (let comment of docs) {
+      //   comment.owner = comment.userId._id.toString() === req.user._id.toString();
+      // }
 
       return User.findById(req.user._id).lean();
     })
