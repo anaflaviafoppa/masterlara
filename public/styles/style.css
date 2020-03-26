@@ -269,6 +269,9 @@ h4.grey {
 .formHome input {
   height: 50px; }
 
+.formHome button.btn-search {
+  width: 35%; }
+
 button.btn-search,
 .btn-search {
   background-color: #3d201c;
@@ -276,7 +279,6 @@ button.btn-search,
   height: 50px;
   border: 1px solid #3d201c;
   vertical-align: center;
-  width: 35%;
   line-height: 20px;
   /* <- changed this */
   box-sizing: border-box;
@@ -289,9 +291,12 @@ button.btn-search:hover,
 
 a.btn-search {
   margin-top: 2em; }
+  @media screen and (max-width: 767px) {
+    a.btn-search {
+      width: 100%; } }
 
 @media (max-width: 767px) {
-  .btn-search {
+  button.btn-search {
     color: #fbfbf6;
     font-size: 12px;
     line-height: 10px;

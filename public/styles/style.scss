@@ -387,7 +387,11 @@ h4.grey {
   input {
     height: 50px;
   }
+  button.btn-search {
+    width: 35%;
+  }
 }
+
 button.btn-search,
 .btn-search {
   background-color: #3d201c;
@@ -395,7 +399,6 @@ button.btn-search,
   height: 50px;
   border: 1px solid #3d201c;
   vertical-align: center;
-  width: 35%;
   line-height: 20px; /* <- changed this */
   box-sizing: border-box;
   margin-bottom: 1em;
@@ -408,10 +411,13 @@ button.btn-search:hover,
 }
 a.btn-search {
   margin-top: 2em;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 }
 
 @media (max-width: $layout-breakpoint-small) {
-  .btn-search {
+  button.btn-search {
     color: $light;
     font-size: 12px;
     line-height: 10px; /* <- changed this */
