@@ -63,6 +63,7 @@ nav {
   nav button {
     padding: 1em 0;
     border: 0;
+    margin-right: 0.7em;
     margin-bottom: 0;
     font-family: 'Poppins';
     color: white;
@@ -265,7 +266,11 @@ h4.grey {
   padding: 30px 0 10px;
   text-align: left; }
 
-.formHome button.btn-search {
+.formHome input {
+  height: 50px; }
+
+button.btn-search,
+.btn-search {
   background-color: #3d201c;
   color: #fbfbf6;
   height: 50px;
@@ -277,12 +282,13 @@ h4.grey {
   box-sizing: border-box;
   margin-bottom: 1em; }
 
-.formHome button.btn-search:hover {
+button.btn-search:hover,
+.btn-search:hover {
   background-color: rgba(255, 255, 255, 0.5);
   color: #3d201c; }
 
-.formHome input {
-  height: 50px; }
+a.btn-search {
+  margin-top: 2em; }
 
 @media (max-width: 767px) {
   .btn-search {

@@ -5,12 +5,14 @@
 
 
 <form action="/authentication/sign-in" method="POST" class="mx-auto mt-5">
-<h2 class="mb-5 align-self-start">Edit your account</h2>
+<h2 class="align-self-start">Edit your account</h2>
+<p class="mb-4 align-self-start">Sign in to get the best experience from Master Lara</p>
   <label class="align-self-start" for="input-email">Email</label>
-  <input class="mb-5" type="email" id="input-email" name="email" placeholder="Your Email" />
+  <input type="email" id="input-email" name="email" placeholder="Your Email" />
   <label class="align-self-start" for="input-password">Password</label>
-  <input class="mb-5" type="password" name="password" id="input-password" placeholder="A Strong Password" />
-  <button class="align-self-end">Sign In</button>
+  <input type="password" name="password" id="input-password" placeholder="A Strong Password" />
+  <a class="align-self-start" href="/authentication/sign-up">Don't have an account?</a>
+  <button class="mt-3 align-self-end">Sign In</button>
 </form>
 {{!-- <a href="/authentication/github">Sign In with GitHub</a> --}}
 </div>

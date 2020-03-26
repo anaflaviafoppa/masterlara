@@ -95,7 +95,7 @@ nav {
   button {
     padding: 1em 0;
     border: 0;
-    // margin-right: 1.5em;
+    margin-right: 0.7em;
     margin-bottom: 0;
     font-family: 'Poppins';
     color: white;
@@ -384,27 +384,30 @@ h4.grey {
 
     text-align: left;
   }
-
-  button.btn-search {
-    background-color: #3d201c;
-    color: $light;
-    height: 50px;
-    border: 1px solid #3d201c;
-    vertical-align: center;
-    width: 35%;
-    line-height: 20px; /* <- changed this */
-    box-sizing: border-box;
-    margin-bottom: 1em;
-  }
-
-  button.btn-search:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #3d201c;
-  }
-
   input {
     height: 50px;
   }
+}
+button.btn-search,
+.btn-search {
+  background-color: #3d201c;
+  color: $light;
+  height: 50px;
+  border: 1px solid #3d201c;
+  vertical-align: center;
+  width: 35%;
+  line-height: 20px; /* <- changed this */
+  box-sizing: border-box;
+  margin-bottom: 1em;
+}
+
+button.btn-search:hover,
+.btn-search:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #3d201c;
+}
+a.btn-search {
+  margin-top: 2em;
 }
 
 @media (max-width: $layout-breakpoint-small) {
