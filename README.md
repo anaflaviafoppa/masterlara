@@ -11,11 +11,16 @@ Join Master Lara to get incredible suggestions and share with friends whatever m
 - It's possible to share a message via Whatsapp which will include the name of the recipe and a list of missing ingredients, so anyone can join!
 - Each user can save their favorite meal to a recipe book associated with their account
 
+## Technologies
+- Node.js
+- Handlebars
+- CSS
+- Bootstrap
+- MongoDB
+
 ## To-do
 - Insert the search bar in the search list page
 - Integrate to Tesco's API
 
 ## Authors
-[Aline Muller Pasetti](https://github.com/alinepasetti)
-
-[Ana Flávia Foppa](https://github.com/anaflaviafoppa)
+[Aline Muller Pasetti](https://github.com/alinepasetti) & [Ana Flávia Foppa](https://github.com/anaflaviafoppa)
