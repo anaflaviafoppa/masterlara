@@ -4,7 +4,7 @@ Join Master Lara to get incredible suggestions and share with friends whatever m
 
 ## How does it work
 - Firstly, the user needs to sign-up so we can save their searched information
-- With the account set, they can insert every ingredient they have at home, separated by a comma
+- With the account set, they can insert every ingredient they have at home, separated by a comma (e.g. carrot, milk, onion. Multiple words are not supported)
 - The app will present a list of recipes that matched the search, sorted by best matches
 - Each recipe displays the percentage of the ingredients owned by the user vs. ingredients needed in the specific recipe
 - In the ingredients list at the recipe detail, the user will see in green what they have, and red whatever is missing
@@ -17,4 +17,5 @@ Join Master Lara to get incredible suggestions and share with friends whatever m
 
 ## Authors
 [Aline Muller Pasetti](https://github.com/alinepasetti)
+
 [Ana Flávia Foppa](https://github.com/anaflaviafoppa)
